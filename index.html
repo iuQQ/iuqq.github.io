@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  margin:0px;padding:0px;
+  }
+
+.a{
+  height: 40px;
+  color: black;
+  background-color: #006bec;
+  }
+
+.b{
+  margin-left:0.5cm;
+  }
+
+.c{
+  color:#fff595;
+  line-height:10px;
+  margin-top:50%;
+  }
+
+#child{
+  line-height:40px
+  }
+
+#about {
+    top: 20px;
+    background-color: #4CAF50;
+}
+#blog {
+    top: 80px;
+    background-color: #2196F3;
+}
+
+#mySidenav a {
+    position: absolute;
+    left: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    margin-top: 50px;
+}
+#mySidenav a:hover {
+    left: 0;
+}
+</style>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>云盘</title>
+</head>
+<body>
+<div class="a">
+<div class="b">
+<div id="child">
+云盘
+</div>
+</div>
+</div>
+
+<SCRIPT language=javascript>
+<!--
+// open the related site windows
+function mbar(sobj) {
+var docurl =sobj.options[sobj.selectedIndex].value;
+if (docurl != "") {
+open(docurl,'_blank');
+sobj.selectedIndex=0;
+sobj.blur();
+}
+}
+//-->
+</SCRIPT>
+<Select onchange=mbar(this) name="select">
+<OPTION selected>首页</OPTION>
+<OPTION value="a.html">注册</OPTION>
+<OPTION value="a.html">登录</OPTION>
+</Select>
+
+<div align="center">
+<div class="c">
+您当前未登录
+<p>但作者不认为有人会看见这里</p>
+</div>
+</div>
+
+<div id="mySidenav" class="sidenav">
+  <a href="a.html" id="about">注册</a>
+  <a href="a.html" id="blog">登录</a>
+</div>
+</body>
+</html>
