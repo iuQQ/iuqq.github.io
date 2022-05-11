@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<title>sign in</title>
+<style>
+div{
+    background:#009FCC;
+    font-size:24px;
+    padding:5px;
+    color:white;
+}
+form{
+    background: #F8F8FF ;
+    border:#357FC4 solid 1px;
+    color:#575454;  
+    width:400px;
+    margin:20px auto;
+    font-size:15px;
+}
+table{
+    margin:10px auto;
+}
+a{
+    text-decoration:none;
+}
+input[type="button"]{
+    background:#228B22;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    width:120px;
+    height:40px;
+}
+td:first-child{
+    text-align:right;
+    padding:0 5px;
+}
+td:only-child{
+    text-align:center;
+    font-size:12px;
+}
+span:before{
+    content:"* ";
+    color:red;
+}
+input[type="text"]:read-only{
+    border:#888484 solid 2px;
+    background:#888484;
+    font-weight:bold;   
+}
+input[type="text"]:hover{
+    background:#EFD9AC;
+}
+</style>
+</head>
+<body>
+<form>
+<div>注册账号</div>
+<table>
+    <tr><td><span>用户名</span></td><td><input type="text" name="user_name" /></td></tr>
+    <tr><td><span>email</span></td><td><input type="text" name="user_email" /></td></tr>
+    <tr><td><span>密码</span></td><td><input type="password" name="user_password" /></td></tr>
+    <tr><td><span>确认密码</span></td><td><input type="password" name="user_confirm_password" /></td></tr>   
+    <tr><td>性别</td><td><input type="radio" id="male" name="user_sex" checked />男<input type="radio" id="female" name="user_sex" />女</td></tr>
+    <tr><td>手机号码</td><td><input type="text" name="user_phone1" /></td></tr>
+    <tr><td colspan="2"><input type="checkbox" checked/>我阅读并接受<a href="#">《用户协议》</a></td></tr>
+    <tr><td colspan="2"><input type="button" name="submit" value="立即注册" /></td></tr>
+</table>
+</form>
+</body>
+</html>
