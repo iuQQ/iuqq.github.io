@@ -5,6 +5,10 @@
         <title></title>
         <link rel="stylesheet" type="text/css" href="css/reset.css"/>
         <style type="text/css">
+            body{
+              margin:0px;padding:0px;
+              }
+                     
             textarea{
                 resize: none;
             }
@@ -21,8 +25,9 @@
                     dataJson=eval('(' + dataJson + ')');
                     for (var i=0;i<dataJson.length;i++) {
                         if (dataJson[i].username==login.username&&dataJson[i].password==login.password) {
-                            alert('登陆成功');
-                            success=1;
+                            alert('登陆成功,将自动跳转。');                          
+                            window.location.href="abcdefghigklmnopqrstuvwnxyzabcdefghigklmnopqrstuvwnxyzabcdefghigklmnopqrstuvwnxyzabcdefghigklmnopqrstuvwnxyzabcdefghigklmnopqrstuvwnxyzabcdefghigklmnopqrstuvwnxyz.html"; 
+                                                        success=1;
                         }
                     }
                     if (success==null) {
@@ -31,7 +36,8 @@
                 }
             }
         </script>
-    </head>
+   
+       </head>
     <body>
         <form action="" method="post">
            <div align="center">
