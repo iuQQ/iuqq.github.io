@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{background:#dcdfe4; margin:0; padding:0; font-size:12px}
+p,h2,form,input,img,h3{margin:0; padding:0; border:none}
+.main{width:899px; height:766px; background:#FFF; margin:0 auto;}
+.top{width:899px; height:66px; margin:24px auto 0;}
+.main_top{width:899px; height:654px;}
+.main_bottom{width:899px; height:112px; background:url(../../images/register/main_bottom_08.jpg) no-repeat center center}
+.footer{width:100%; height:168px;}
+.footer_content{width:899px; height:104px; font-size:14px; font-family:"微软雅黑"; color:#999999; margin:0 auto; line-height:24px; text-align:center; padding-top:64px}
+
+/*账号绑定*/
+.reg_tit{width:100px;height:20px;padding:26px 0 0 37px;color:#565656;font-family:"微软雅黑";line-height:20px;font-weight:normal;font-size:18px;}
+.tencent_reg,.sina_reg{border:none;width:216px;height:59px;cursor:pointer}
+.tencent_reg{background:url(../../images/register/tencent_reg_03.jpg) no-repeat center center;float:right}
+.tencent_reg:hover{background:url(../../images/register/tencent_reg2_03.jpg) no-repeat center center}
+.sina_reg{background:url(../../images/register/sina_reg_03.jpg) no-repeat center center;float:left}
+.sina_reg:hover{background:url(../../images/register/sina_reg2_03.jpg) no-repeat center center}
+.sub_reg{width:456px;height:59px;margin:120px auto 0}
+.mention_reg{line-height:70px;font-size:12px;color:#959595;text-align:center;float:left;width:100%}
+.sub_mention_text{width:100%;line-height:22px;display:block;float:left;margin-bottom:30px;font-size:16px;font-family:"微软雅黑";padding-left:20px;}
+.reg_username{font-size:18px;font-family:"微软雅黑";color:#0066FF}
+
+
+
+/*注册成功页面*/
+.sucess_main{width:310px;height:220px;margin:120px auto;}
+.sucess_news{width:310px;height:45px;line-height:24px;text-align:center;color:#2b556f;font-size:18px;font-family:"微软雅黑";background:url(../../images/register/reg_sucess_bg_08.jpg) no-repeat left top}
+.chose_img{text-align:center;margin:28px auto;font-family:"微软雅黑";font-size:12px;color:#8e8e8e}
+.chose_input{margin-right:10px;line-height:16px}
+.sucess_sub_box{width:263px;height:45px;margin:0 auto;}
+.sucess_sub{border:none;width:263px;height:45px;cursor:pointer;background:url(../../images/register/reg_ok_21.jpg);text-align:center;color:#FFF;font-family:"微软雅黑";font-size:20px;}
+.sucess_sub:hover{background:url(../../images/register/reg_sucess_sub2_12.jpg) no-repeat center center}
+
+/*注册界面*/
+.main_reg{width:899px; height:60px;}
+.main_reg h2{width:899px; height:60px; font-size:18px; font-family:"微软雅黑"; color:#666666; font-weight:normal; text-indent:37px; line-height:60px}
+.empty_place{width:100%; height:65px}
+.input_left{width:578px; height:528px; border-right:solid 1px #e4e4e4; float:left}
+.user_name{height:35px; padding-left:15px; padding-bottom:35px;_padding-bottom:15px}
+.reg_box{width:430px; height:45px; padding-left:148px; padding-bottom:35px}
+
+
+.text_start{width:75px; height:35px; display:block; float:left;line-height:35px; font-family:"微软雅黑"; font-size:14px; color:#5b5b5b; text-align:right; padding-right:15px}
+.text_end{height:35px; font-size:12px; color:#c40808; line-height:35px;display:block; float:left; padding-left:10px; width:160px}
+.text_end a:link,.text_end a:visited{color:#0084d6; text-decoration:none}
+.text_end a:hover{text-decoration:underline}
+.text_middle1,.text_middle2,.text_middle3{width:300px; height:35px; border:none;display:block; float:left; line-height:35px; text-indent:1em; color:#a1a1a1;}
+.text_middle1{background:url(../../images/register/input_bg1_07.jpg) no-repeat center center}
+.text_middle2{background:url(../../images/register/input_bg2_07.jpg) no-repeat center center}
+.text_middle3{background:url(../../images/register/input_bg3_07.jpg) no-repeat center center}
+.text_middle_none{background:url(../../images/register/input_none_07.jpg) no-repeat center center}
+.text_middle_other{width:129px; height:35px; border:none; background:url(../../images/register/yanzheng_03.jpg) no-repeat center center; display:block; float:left; line-height:35px; text-indent:1em; color:#a1a1a1;}
+.reg_ok{width:263px; height:45px; border:none; background:url(../../images/register/reg_ok_21.jpg) no-repeat center center; display:block; font-family:"微软雅黑"; font-size:20px; color:#fff; cursor:pointer}
+.captcha{width:300px;height:35px;border:none;display: block;float:left;line-height:35px;text-indent: 1em}
+
+.login_ok{width:263px; height:45px; border:none; background:url(../../images/register/login_password_sub2_03.jpg) no-repeat center center; font-family:"微软雅黑"; font-size:20px; color:#fff; cursor:pointer}
+.login_ok:hover{ background:url(../../images/register/login_password_sub_03.jpg) no-repeat center center; }
+
+.input_right{ float:left; padding:22px 0 0 26px;}
+.input_right .txt_1{font-size:16px; font-family:"微软雅黑"; color:#535353;}
+.input_right a:link,.input_right a:visited{color:#0084d6; text-decoration:none}
+.input_right a:hover{text-decoration:underline}
+.input_right .txt_2{font-size:16px; font-family:"微软雅黑"; color:#535353; padding-top:26px}
+.annotation{color:#a1a1a1; padding-left:92px; line-height:18px; float:left; padding-top:5px}
+
+.agree{display:block; height:16px; line-height:16px; float:left}
+.agree_text{display:block; height:16px; line-height:16px; float:left; padding-left:5px}
+.user_name2{height:16px; padding-left:59px; padding-bottom:35px;_padding-bottom:15px; padding-left:148px}
+.welcome{color:#2b556f; font-family:"微软雅黑";font-size:18px;padding-left:150px}
+.user_img{width:50px;height:50px;overflow:hidden;}

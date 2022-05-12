@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{background:#dcdfe4; margin:0; padding:0; font-size:12px}
+p,h2,form,input,img{margin:0; padding:0; border:none}
+.main{width:899px; height:766px; background:#FFF; margin:0 auto;}
+.top{width:899px; height:66px; margin:24px auto 0;}
+.main_top{width:899px; height:654px;}
+.main_bottom{width:899px; height:112px; background:url(../images/main_bottom_08.jpg) no-repeat center center}
+.footer{width:100%; height:168px;}
+.footer_content{width:899px; height:104px; font-size:14px; font-family:"Microsoft YaHei"; color:#999999; margin:0 auto; line-height:24px; text-align:center; padding-top:64px}
+
+/*the content of main_reg*/
+.main_reg{width:899px; height:60px;}
+.main_reg h2{width:899px; height:60px; font-size:18px; font-family:"Microsoft YaHei"; color:#666666; font-weight:normal; text-indent:37px; line-height:60px}
+.empty_place{width:100%; height:65px}
+.input_left{width:578px; height:528px; border-right:solid 1px #e4e4e4; float:left}
+.user_name{height:35px; padding-left:59px; padding-bottom:35px;_padding-bottom:15px}
+.reg_box{width:430px; height:45px; padding-left:148px; padding-bottom:35px}
+
+
+.text_start{width:75px; height:35px; display:block; float:left;line-height:35px; font-family:"Microsoft YaHei"; font-size:14px; color:#5b5b5b; text-align:right; padding-right:15px}
+.text_end{height:35px; font-size:12px; color:#c40808; line-height:45px;display:block; float:left; padding-left:10px; width:150px}
+.text_end a:link,.text_end a:visited{color:#0084d6; text-decoration:none}
+.text_end a:hover{text-decoration:underline}
+.text_middle{width:255px; height:35px; border:none; background:url(../images/text_bg_05.jpg) no-repeat center center; display:block; float:left; line-height:35px; text-indent:1em; color:#a1a1a1;}
+.text_middle_other{width:129px; height:35px; border:none; background:url(../images/yanzheng_03.jpg) no-repeat center center; display:block; float:left; line-height:35px; text-indent:1em; color:#a1a1a1;}
+.reg_ok{width:263px; height:45px; border:none; background:url(../images/reg_ok_21.jpg) no-repeat center center; font-family:"Microsoft YaHei"; font-size:20px; color:#fff; cursor:pointer}
+
+.login_ok{width:263px; height:45px; border:none; background:url(../images/login_ok_10.jpg) no-repeat center center; display:block; font-family:"Microsoft YaHei"; font-size:20px; color:#fff; cursor:pointer}
+
+.input_right{ float:left; padding:22px 0 0 26px;}
+.input_right .txt_1{font-size:16px; font-family:"Microsoft YaHei"; color:#535353;}
+.input_right a:link,.input_right a:visited{color:#0084d6; text-decoration:none}
+.input_right a:hover{text-decoration:underline}
+.input_right .txt_2{font-size:16px; font-family:"Microsoft YaHei"; color:#535353; padding-top:26px}
+.annotation{color:#a1a1a1; padding-left:92px; line-height:18px; float:left; padding-top:5px}
+
+.agree{display:block; height:16px; line-height:16px; float:left}
+.agree_text{display:block; height:16px; line-height:16px; float:left; padding-left:5px}
+.user_name2{height:16px; padding-left:59px; padding-bottom:35px;_padding-bottom:15px; padding-left:148px}
+#tishi{color: #C40808;line-height: 45px;}
+
+
+
+/*注册成功*/
+.main_top .cgls{width:375px; height:165px;margin:0 auto; padding-top:73px;}
+.cgls_tit{width:375px; height:50px;; line-height:50px; font-family:"Microsoft YaHei"; font-size:18px; color:#3a3a3a; text-align:right}
+.cgls_sign{width:41px; height:50px; display:inline-block; float:left; background:url(../images/draw_sign_08.jpg) no-repeat center center}
+.go_email{width:375px; height:90px; padding-top:25px; font-size:14px; color:#3a3a3a; line-height:20px}
+.go_link{ text-align:right; font-size:20px; font-family:"Microsoft YaHei";padding-top:20px}
+.go_link a:link,.go_link a:visited{color:#4bba00; text-decoration:none}
+.go_link a:hover{text-decoration:underline}
+
+
+
+.main1{width:899px;background:#FFF; margin:0 auto;}
+.main_top1{width:899px;}
+.main_bottom1{width:899px; height:112px; background:url(../images/main_bottom_08.jpg) no-repeat center center}
+
+.rule{width:899px;}
+.rule p{font-size:12px; padding:10px 20px; line-height:18px}
+.rule span{font-size:14px; font-weight:bold;}
+.rule p.rule_tit{font-size:16px; font-weight:bold; line-height:24px}
+
+/*激活成功*/
+.activ_ready{width:375px; height:33px; text-align:center; background:url(../images/draw_sign_08.jpg) no-repeat 90px center; font-family:"Microsoft YaHei"; font-size:24px; color:#3a3a3a; line-height:33px}
+.welcoming{width:375px; height:72px; text-align:center; line-height:72px; font-size:14px}
+.go_sub{width:375px; height:87px;}
+
+.my_home{width:151px; height:46px; background:url(../images/my_home_08.jpg) no-repeat center center; display:block; float:left; border:none; margin:15px 0 0 99px; cursor:pointer;}
+.my_home:hover{background:url(../images/my_home2_08.jpg) no-repeat center center}
+.information{width:151px; height:46px; background:url(../images/information_08.jpg) no-repeat center center; display:block; float:left; border:none;margin:15px 0 0 37px; cursor:pointer;_margin:15px 0 0 18px; }
+.information:hover{background:url(../images/information2_08.jpg) no-repeat center center}
+
+/*注册失效*/
+.warn{width:375px; height:33px;}
+.warn_ico{width:37px; height:33px; background:url(../images/warn_03.jpg) no-repeat right center; display:block; float:left; padding-left:113px}
+.warn_txt{width:125px; height:33px; font-family:"Microsoft YaHei"; font-size:24px; line-height:33px; text-align:center; color:#3a3a3a; float:left}
+.explain{width:375px; height:18px; line-height:18px; text-align:center; font-size:14px; padding-top:28px; color:#3a3a3a}
+
+/*等待激活*/
+.wait_active{width:215px; height:75px; margin:0 auto; padding-top:65px;}
+.wait_top{width:145px; height:50px; background:url(../images/waite_active_07.jpg) no-repeat 21px center; padding-left:70px; font-size:24px; font-family:"Microsoft YaHei"; color:#505050; line-height:50px;}
+.wait_bottom{width:215px; height:25px; line-height:25px; font-size:14px; color:#5f5f5f; font-family:"Microsoft YaHei"}
+.wait_bottom .loading{width:30px; height:25px; float:left; overflow:hidden; position:relative}
+.loading_img{position:absolute; left:-110px; top:-68px;}
+.loading_text{ height:25px; float:left}
+
+
+.text_end_2{color:#0084d6; height:35px; font-size:12px; line-height:45px;display:block; float:left; padding-left:10px; width:150px}
+.text_end_2 a:link,.text_end_2 a:visited{color:#0084d6; text-decoration:none}
+.text_end_2 a:hover{text-decoration:underline}
+
+
+
