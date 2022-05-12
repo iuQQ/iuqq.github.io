@@ -1,170 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-
-
-
-
-<style>
-@charset "utf-8";
-/* CSS Document */
-
-body{background:#dcdfe4; margin:0; padding:0; font-size:12px}
-p,h2,form,input,img{margin:0; padding:0; border:none}
-.main{width:899px; height:766px; background:#FFF; margin:0 auto;}
-.top{width:899px; height:66px; margin:24px auto 0;}
-.main_top{width:899px; height:654px;}
-.main_bottom{width:899px; height:112px; background:url(../images/main_bottom_08.jpg) no-repeat center center}
-.footer{width:100%; height:168px;}
-.footer_content{width:899px; height:104px; font-size:14px; font-family:"Microsoft YaHei"; color:#999999; margin:0 auto; line-height:24px; text-align:center; padding-top:64px}
-
-/*the content of main_reg*/
-.main_reg{width:899px; height:60px;}
-.main_reg h2{width:899px; height:60px; font-size:18px; font-family:"Microsoft YaHei"; color:#666666; font-weight:normal; text-indent:37px; line-height:60px}
-.empty_place{width:100%; height:65px}
-.input_left{width:578px; height:528px; border-right:solid 1px #e4e4e4; float:left}
-.user_name{height:35px; padding-left:59px; padding-bottom:35px;_padding-bottom:15px}
-.reg_box{width:430px; height:45px; padding-left:148px; padding-bottom:35px}
-
-
-.text_start{width:75px; height:35px; display:block; float:left;line-height:35px; font-family:"Microsoft YaHei"; font-size:14px; color:#5b5b5b; text-align:right; padding-right:15px}
-.text_end{height:35px; font-size:12px; color:#c40808; line-height:45px;display:block; float:left; padding-left:10px; width:150px}
-.text_end a:link,.text_end a:visited{color:#0084d6; text-decoration:none}
-.text_end a:hover{text-decoration:underline}
-.text_middle{width:255px; height:35px; border:none; background:url(../images/text_bg_05.jpg) no-repeat center center; display:block; float:left; line-height:35px; text-indent:1em; color:#a1a1a1;}
-.text_middle_other{width:129px; height:35px; border:none; background:url(../images/yanzheng_03.jpg) no-repeat center center; display:block; float:left; line-height:35px; text-indent:1em; color:#a1a1a1;}
-.reg_ok{width:263px; height:45px; border:none; background:url(../images/reg_ok_21.jpg) no-repeat center center; font-family:"Microsoft YaHei"; font-size:20px; color:#fff; cursor:pointer}
-
-.login_ok{width:263px; height:45px; border:none; background:url(../images/login_ok_10.jpg) no-repeat center center; display:block; font-family:"Microsoft YaHei"; font-size:20px; color:#fff; cursor:pointer}
-
-.input_right{ float:left; padding:22px 0 0 26px;}
-.input_right .txt_1{font-size:16px; font-family:"Microsoft YaHei"; color:#535353;}
-.input_right a:link,.input_right a:visited{color:#0084d6; text-decoration:none}
-.input_right a:hover{text-decoration:underline}
-.input_right .txt_2{font-size:16px; font-family:"Microsoft YaHei"; color:#535353; padding-top:26px}
-.annotation{color:#a1a1a1; padding-left:92px; line-height:18px; float:left; padding-top:5px}
-
-.agree{display:block; height:16px; line-height:16px; float:left}
-.agree_text{display:block; height:16px; line-height:16px; float:left; padding-left:5px}
-.user_name2{height:16px; padding-left:59px; padding-bottom:35px;_padding-bottom:15px; padding-left:148px}
-#tishi{color: #C40808;line-height: 45px;}
-
-
-
-/*注册成功*/
-.main_top .cgls{width:375px; height:165px;margin:0 auto; padding-top:73px;}
-.cgls_tit{width:375px; height:50px;; line-height:50px; font-family:"Microsoft YaHei"; font-size:18px; color:#3a3a3a; text-align:right}
-.cgls_sign{width:41px; height:50px; display:inline-block; float:left; background:url(../images/draw_sign_08.jpg) no-repeat center center}
-.go_email{width:375px; height:90px; padding-top:25px; font-size:14px; color:#3a3a3a; line-height:20px}
-.go_link{ text-align:right; font-size:20px; font-family:"Microsoft YaHei";padding-top:20px}
-.go_link a:link,.go_link a:visited{color:#4bba00; text-decoration:none}
-.go_link a:hover{text-decoration:underline}
-
-
-
-.main1{width:899px;background:#FFF; margin:0 auto;}
-.main_top1{width:899px;}
-.main_bottom1{width:899px; height:112px; background:url(../images/main_bottom_08.jpg) no-repeat center center}
-
-.rule{width:899px;}
-.rule p{font-size:12px; padding:10px 20px; line-height:18px}
-.rule span{font-size:14px; font-weight:bold;}
-.rule p.rule_tit{font-size:16px; font-weight:bold; line-height:24px}
-
-/*激活成功*/
-.activ_ready{width:375px; height:33px; text-align:center; background:url(../images/draw_sign_08.jpg) no-repeat 90px center; font-family:"Microsoft YaHei"; font-size:24px; color:#3a3a3a; line-height:33px}
-.welcoming{width:375px; height:72px; text-align:center; line-height:72px; font-size:14px}
-.go_sub{width:375px; height:87px;}
-
-.my_home{width:151px; height:46px; background:url(../images/my_home_08.jpg) no-repeat center center; display:block; float:left; border:none; margin:15px 0 0 99px; cursor:pointer;}
-.my_home:hover{background:url(../images/my_home2_08.jpg) no-repeat center center}
-.information{width:151px; height:46px; background:url(../images/information_08.jpg) no-repeat center center; display:block; float:left; border:none;margin:15px 0 0 37px; cursor:pointer;_margin:15px 0 0 18px; }
-.information:hover{background:url(../images/information2_08.jpg) no-repeat center center}
-
-/*注册失效*/
-.warn{width:375px; height:33px;}
-.warn_ico{width:37px; height:33px; background:url(../images/warn_03.jpg) no-repeat right center; display:block; float:left; padding-left:113px}
-.warn_txt{width:125px; height:33px; font-family:"Microsoft YaHei"; font-size:24px; line-height:33px; text-align:center; color:#3a3a3a; float:left}
-.explain{width:375px; height:18px; line-height:18px; text-align:center; font-size:14px; padding-top:28px; color:#3a3a3a}
-
-/*等待激活*/
-.wait_active{width:215px; height:75px; margin:0 auto; padding-top:65px;}
-.wait_top{width:145px; height:50px; background:url(../images/waite_active_07.jpg) no-repeat 21px center; padding-left:70px; font-size:24px; font-family:"Microsoft YaHei"; color:#505050; line-height:50px;}
-.wait_bottom{width:215px; height:25px; line-height:25px; font-size:14px; color:#5f5f5f; font-family:"Microsoft YaHei"}
-.wait_bottom .loading{width:30px; height:25px; float:left; overflow:hidden; position:relative}
-.loading_img{position:absolute; left:-110px; top:-68px;}
-.loading_text{ height:25px; float:left}
-
-
-.text_end_2{color:#0084d6; height:35px; font-size:12px; line-height:45px;display:block; float:left; padding-left:10px; width:150px}
-.text_end_2 a:link,.text_end_2 a:visited{color:#0084d6; text-decoration:none}
-.text_end_2 a:hover{text-decoration:underline}
-</style>
-
-
-
-
-
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="博客网，www.bokee.com,最具影响力中文网站之一，免费提供专业博客托管服务（BSP），现拥有博客公社、移动博客、图片博客、视频博客、教师博客、学生博客、博采、播客和RSS博览等多个应用版块。"/>
-<meta name="keywords" content="blog,weblog,blogger,bokee.com,www.bokee.com,博客中国,中国博客,博客,博采,我的博客,博客托管,图片博客,移动博客,群体博客,博客通,SNS,社会网络,博客动力,博客公社,教师博客,学生博客,IT,方兴东,微软问题,科技,新知,生活,社会软件,IT业界,互联网实验室,新媒体,博客研究,podcast,播客,标签,tag,BSP"/>
-<title>登录--博客网</title>
-<link href="a.css" rel="stylesheet" type="text/css" />
-<script src="http://js.bokee.com/newbokee_home/default/script/common.js" type="text/javascript"></script>
-<script src="http://js.bokee.com/newbokee_home/default/jslib/sea.js" type="text/javascript"></script>
-<script src="http://js.bokee.com/newbokee_home/default/jslib/jquery.js" type="text/javascript"></script>
-<script src="http://js.bokee.com/newbokee_user/default/js/jquery-1.7.min.js" type="text/javascript"></script>
-<script src="http://js.bokee.com/newbokee_home/default/script/login.js" type="text/javascript"></script>
-</head>
-
-<body>
-	<div class="top">
-    	<p><a href="http://www.bokee.com" target="_blank"><img src="http://js.bokee.com/newbokee_home/default/images/logo_05.jpg" /></a></p>
-    </div>
-	<div class="main">
-    	<div class="main_top">
-        	<div class="main_reg">
-            	<h2>登录</h2>
-            </div>
-            <div class="empty_place"></div>
-            <div class="main_input">
-            	<div class="input_left">
-                	
-                    	<div class="user_name">
-                    		<span class="text_start">用户名：</span id="replaceC"><input type="text"  id="username"  class="text_middle" />
-                    		
-                    		<span class="text_end_2"><input class="jzw" name="" type="checkbox" value="" id="rememberme" checked="checked">
-							<span>记住我</span></span>
-                    		
-                    	</div>
-                        <div class="user_name">
-                    		<span class="text_start">密&nbsp&nbsp&nbsp&nbsp码：</span><input type="password" id="password"  class="text_middle" /><span class="text_end"><a href="http://uhome.blogchina.com/reset/resetIndex.action">&nbsp密码重置</a></span>
-                    	</div>
-                        <div class="reg_box">
-                        	<button class="reg_ok" id="login" onclick="sign()">登录</button>
-                        </div>
-                    
-                </div>
-                <div class="input_right">
-                	<p class="txt_1">没有帐号，<a href="http://login.bokee.com/reg">快速注册 >></a></p>
-                    <p class="txt_2">客户服务热线：15110263473</p>
-                </div>
-            </div>
-        </div>
-        <div class="main_bottom">
-        	
-        </div>
-    </div>
-    <div class="footer">
-    	<div class="footer_content">
-        	<p>
-            	Copyright 2001 - 2013 bokee.com, All Rights Reserved<br />
-                增值电信业务经营许可证编号：B2-20100256&nbsp;&nbsp;&nbsp;　　京ICP证050706<br />
-                客户服务热线：15110263473
-            </p>
-        </div>
-    </div>
-</body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+        <style type="text/css">
+            textarea{
+                resize: none;
+            }
+        </style>
+        <script type="text/javascript">
+            window.onload=function(){
+                var oUser=document.getElementById('username');
+                var oPwd=document.getElementById('password');
+                var oBtn=document.getElementById('btn');
+                oBtn.onclick=function(){
+                    var login={'username':oUser.value,'password':oPwd.value};
+                    var dataJson=window.localStorage.getItem('list');
+                    var success=null;
+                    dataJson=eval('(' + dataJson + ')');
+                    for (var i=0;i<dataJson.length;i++) {
+                        if (dataJson[i].username==login.username&&dataJson[i].password==login.password) {
+                            alert('登陆成功');
+                            success=1;
+                        }
+                    }
+                    if (success==null) {
+                        alert('用户名或密码错误');
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form action="" method="post">
+            用户名：<input type="text" id="username" /><br />
+            密码：<input type="password" id="password" /><br />
+            <input type="button" id="btn" value="登陆" />
+        </form>
+    </body>
 </html>
-
