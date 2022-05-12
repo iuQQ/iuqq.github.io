@@ -1,71 +1,47 @@
-<!doctype html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<a href="index.html">超链接</a>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>sign in</title>
-<style>
-div{
-    background:#009FCC;
-    font-size:24px;
-    padding:5px;
-    color:white;
-}
-form{
-    background: #F8F8FF ;
-    border:#357FC4 solid 1px;
-    color:#575454;  
-    width:400px;
-    margin:20px auto;
-    font-size:15px;
-}
-table{
-    margin:10px auto;
-}
-a{
-    text-decoration:none;
-}
-input[type="button"]{
-    background:#228B22;
-    color:white;
-    font-size:15px;
-    font-weight:bold;
-    width:120px;
-    height:40px;
-}
-td:first-child{
-    text-align:right;
-    padding:0 5px;
-}
-td:only-child{
-    text-align:center;
-    font-size:12px;
-}
-span:before{
-    content:"* ";
-    color:red;
-}
-input[type="text"]:read-only{
-    border:#888484 solid 2px;
-    background:#888484;
-    font-weight:bold;   
-}
-input[type="text"]:hover{
-    background:#EFD9AC;
-}
-</style>
+<title>快捷注册</title>
+<link href="http://uhome.blogchina.com:80/styles/register/reg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://uhome.blogchina.com:80/script/jquery/jquery-1.7.2.js"></script>
 </head>
 <body>
-<form>
-<div>注册账号</div>
-<table>
-    <tr><td><span>用户名</span></td><td><input type="text" name="user_name" /></td></tr>
-    <tr><td><span>email</span></td><td><input type="text" name="user_email" /></td></tr>
-    <tr><td><span>密码</span></td><td><input type="password" name="user_password" /></td></tr>
-    <tr><td><span>确认密码</span></td><td><input type="password" name="user_confirm_password" /></td></tr>   
-    <tr><td>性别</td><td><input type="radio" id="male" name="user_sex" checked />男<input type="radio" id="female" name="user_sex" />女</td></tr>
-    <tr><td>手机号码</td><td><input type="text" name="user_phone1" /></td></tr>
-    <tr><td colspan="2"><input type="checkbox" checked/>我阅读并接受<a href="#">《用户协议》</a></td></tr>
-    <tr><td colspan="2"><input type="button" name="submit" value="立即注册" /></td></tr>
-</table>
-</form>
+
+<!-- 
+<h2><a href="http://app.blogchina.com/ywtAuth/auth.action?platform_id=1&callback=http://www.blogchina.com:8080/userHome/successfulAuthor.action">绑定新浪</a></h2>    
+<br/><br/>
+<h2><a href="http://app.blogchina.com/ywtAuth/auth.action?platform_id=8&callback=http://www.blogchina.com:8080/userHome/successfulAuthor.action">绑定腾讯</a></h2>
+ -->
+	<div class="top">
+    	<p><a href="http://www.bokee.com"><img src="http://uhome.blogchina.com:80/images/register/logo_05.jpg" /></a></p>
+    </div>
+	<div class="main">
+    	<div class="main_top">
+        	<h3 class="reg_tit">注册</h3>
+        	<p class="sub_reg">
+        	
+            	<input type="button" onclick="window.location.href='http://app.blogchina.com/ywtAuth/auth.action?platform_id=1&callback=http://uhome.blogchina.com:80/successfulAuthor.action'" class="sina_reg"/>
+            	<!-- <input type="button" onclick="javascript:alert('建设中，敬请期待！')" class="tencent_reg"/>-->
+            	<input type="button" onclick="window.location.href='http://app.blogchina.com/ywtAuth/auth.action?platform_id=8&callback=http://uhome.blogchina.com:80/successfulAuthor.action'" class="tencent_reg"/> 
+                <span class="mention_reg">注：绑定账号会作为<a href="http://uhome.blogchina.com:80/reset/resetIndex.action">重置密码</a>途径</span>
+            </p>
+        </div>
+        <div class="main_bottom">
+        	
+        </div>
+    </div>
+    <div class="footer">
+    	<div class="footer_content">
+        	<p>
+            	Copyright 2001 - 2013 bokee.com, All Rights Reserved<br />
+                增值电信业务经营许可证编号：B2-20100256&nbsp;&nbsp;&nbsp;　　京ICP证050706<br />
+                客户服务热线：15110263473
+            </p>
+        </div>
+    </div>
+
 </body>
-</html>
+</html>:
