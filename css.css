@@ -28,13 +28,17 @@ body{
 
 .g{
   height:250px;
-  width: 
   background-color:white;
   }
 
 .k{
   height:25px;
   background-color:#f5f5f5;
+  }
+
+.l{
+  height:250px;
+  background-color:white;
   }
 
 #child{
