@@ -1,54 +1,244 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="css.css">
-   <style>
-      body{margin:0px;padding:0px;}
-   </style>
-	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>个人网站</title>
-  </head>
-  <body>
-  <div class="d">
-    <div id="parent">
-    <div id="child">
-    <div class="a">
-    <div class="b">
-    <a style="color:black" href="index.html"><i>个人网站 (网站可能使用Cookie增加你的体验)</i></a>
-    </div>
-    </div>
-    </div>
-    </div>
-    
-      <div class="c">
-     <div align="center">
-    <small><a style="color:black;text-decoration:none;" href="">&nbsp &nbsp 首页 &nbsp &nbsp</a>
-    <a style="color:black;text-decoration:none;" href="">&nbsp &nbsp 分类 &nbsp &nbsp</a>
-    <a style="color:black;text-decoration:none;" href="">&nbsp &nbsp 关于 &nbsp &nbsp</a>
-    <a style="color:black;text-decoration:none;" href="">&nbsp &nbsp 整合 &nbsp &nbsp</a>
-<!--
-    <a style="color:black;text-decoration:none;" href="建站.html">&nbsp &nbsp 建站 &nbsp &nbsp</a>
--->
-    <a style="color:black;text-decoration:none;" href="">&nbsp &nbsp 标签 &nbsp &nbsp</a></small>
-     </div>
-     </div>
-     
-     <div class="d">
-     </div>
-     <div class="e">     
-     </div>
-        
-<div class="g">
+<html lang="zh-CN">
+<head>
+	<script type="text/javascript" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-5-y/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/peerjs@1.3.2/dist/peerjs.min.js"></script>
+</head>
 
-</div>
-     
-     <div class="k">
-     </div>
-     <div class="g">  
-        <a href="https://evolution-host.com/vps-game.php"><img src="gg.jpg" width="100%"/></a> 
-     <div align="center">
-     
-     </div>
-     </div>
-  </body>
+<body>
+	
+	<div align="left">
+		<div>
+			<span>RemotePeer：</span>
+			<input type="text" id="remotePeerId" value="ccctttrrrzzz-0">
+			<span style="background-color:red; cursor:pointer;" onclick="launchPeer($('#remotePeerId').val())">Launch</span>
+		</div>
+		
+		<div>私信：<b id="msg" style="color:green"></b></div>
+	</div>
+	
+	<script type="text/javascript">
+		
+		if (WebSocket && WebSocket.prototype.send) {
+			//alert("您的浏览器支持Websocket通信协议")
+		}else{
+			alert("您的浏览器不支持Websocket通信协议，请使用Chrome或者Firefox浏览器！")
+		}
+		
+		
+		var vConsole = new window.VConsole();
+		// debug 代码
+		var _err, _connErr, _tmp;
+		function showPeer(peer) {
+			if (!peer)
+				return;
+			console.log('id:', peer.id, 'open:', peer.open, 'disconnected:', peer.disconnected, 'destroyed:', peer.destroyed)
+		}
+		function showConns(conns) {
+			if (!conns.length)
+				return;
+			conns.forEach( (conn)=>{
+				console.log('open:', conn.open, 'remote peer id:', conn.peer, 'reliable:', conn.reliable)
+			})
+		}
+		function log(role, obj) {
+			var text = 'log: [' + role + '] ';
+			for (var k in obj) {
+				text += k + ': ' + obj[k] + ', ';
+			}
+			$('#msg').append('<div>' +text+ '</div>')
+		}
+		
+		// 初始化
+		function initPeer(peerId) {
+			
+			var peer = new Peer(peerId);
+			var signal = 0;
+			peer.on('open', (id)=>{
+				log('Peer', {'peer-event':'open （与broker连接成功）'}); // --------------
+				console.log('peerID是: ', id);
+				signal = 1;
+			});
+			peer.on('error', (err)=>{
+				log('Peer', {'peer-event':'error', type:err.type, hints:err.message}); // --------------
+				_err = err;
+				if (err.type == 'unavailable-id')
+					console.log('peerID “' +peerId+ '” 分配失败【_err】');
+				if (err.type == 'peer-unavailable')
+					console.log('peer.connect “' +err.message+ '” 连接失败！【_err】')
+				console.log('peer-event: error', err);
+				signal = -1;
+			});
+			
+			
+			let ready = new Promise( (resolve, reject)=>{
+				setTimeout(() => {
+					if (signal==1)
+						resolve();
+					else
+						reject();
+				}, 3000);
+			});
+			return ready.then(()=>{return peer;}).catch(()=>{return null;});
+		}
+	
+		
+		
+		// 启动服务
+		var MAX_CONN = 30
+		var peer = null;
+		var conns = [];
+		function launchPeer(remotePeerId) {
+			
+			/***********************************
+				若未提供“remotePeerId”，则表示“peer（自身）”启动后，不主动向“远程peer（服务端）”请求数据【相当于，自己在p2p中的角色是“纯-服务端”】
+				若提供了“remotePeerId”，则表示“peer（自身）”启动后，需要先向“远程peer（服务端）”请求数据，得到数据后，自己也可作为“服务端”。
+			***********************************/
+			
+			log('启动Peer', {remotePeer:remotePeerId}); // --------------
+			
+			var i=0;
+			function initPeerCallback(ret) {
+				peer = ret;
+				console.log('initPeer:', peer);
+				showPeer(peer);
+				
+				i += 1;
+				if (peer || i>100)
+					return;
+				console.log('initPeer: peer 为 null', peer);
+				initPeer('ccctttrrrzzz-' + i).then( initPeerCallback );
+			}
+			initPeer('ccctttrrrzzz-' + i).then( initPeerCallback );
+			
+			
+			var timer = setInterval( ()=>{
+				if (!peer) {
+					if (i>100) {
+						$('#msg').append('<div>私信服务启动失败</div>');
+						clearInterval(timer);
+					}
+					return;
+				}
+				
+				clearInterval(timer);
+				
+				$('#msg').append('<div>私信服务已就绪' +peer.id+ '</div>');
+				
+				log('启动Peer', {peer:peer.id}); // --------------
+				console.log('~~~~~~~~~~', peer)
+				// Receiver 监听连接【p2p中的服务端逻辑】
+				peer.on('connection', function(conn) {
+					log( 'Receiver', {'peer-event':'connection', remoteId:conn.peer} ); // --------------
+					
+					
+					if (conns.length >= MAX_CONN) {
+						conn.close()
+						return
+					}
+					console.log('666666666666666666', conn.peer)
+					conns.push(conn);
+					conn.on('data', function(data){
+						// Will print 'hi!'
+						console.log(data);
+						
+						var newMsgNode = $('<div></div>');
+						newMsgNode.text(data);
+						//$('#msg').append(newMsgNode);
+						log( 'Receiver', {'conn-event':'data', data:data} ); // --------------
+						
+						// 返回数据【response】
+						conn.send('请求已收到!【' +data+ '】');
+					});
+					conn.on('error', function(err){
+						log( 'Receiver', {'conn-event':'error', type:err.type, hints:err.message} ); // --------------
+					});
+				});
+				
+				
+				if (!remotePeerId)
+					return
+				// Connect initiator，主动向remotePeer请求数据
+				var n = 20;
+				var connI = peer.connect(remotePeerId);
+				_tmp = connI;
+				/* *******************************************
+					偶然发现：“peer.connect”向远端peer发起连接时，远端peer与broker处于断开状态，本次connection将不会触发任何消息，
+					应增加超时处理逻辑，否则，无法确认后续逻辑是否已执行
+				******************************************* */
+				connI.on('open', function(){
+					log( 'Initiator', {'conn-event':'open 成功'} ); // --------------
+					connI.send('hi-' + n);
+					n -= 1;
+				});
+				connI.on('error', function(err){
+					log( 'Initiator', {'conn-event':'error', type:err.type, hints:err.message} ); // --------------
+					_connErr = err;
+					console.log('peer.connect 连接失败！【_connErr】')
+				});
+				connI.on('data', function(data){
+					log( 'Initiator', {'conn-event':'data', data:data} ); // --------------
+					// Will print 'hi!'
+					console.log(data);
+					
+					var newMsgNode = $('<div></div>');
+					newMsgNode.text(data);
+					//$('#msg').append(newMsgNode);
+					
+					if (n <= 0)
+						return;
+					// 发送请求【request】
+					setTimeout( function(){
+						connI.send('hi-' + n);
+						n -= 1;
+					}, 5000);
+				});
+			}, 2000);
+		}
+		
+		
+		// 与broker断开连接，并切断所有p2p连接
+		function stopPeer(peer) {
+			peer.destroyed();
+			peer = null;
+			conns = [];
+		}
+		
+		
+		
+		/////////////
+		// launchPeer(); launchPeer('ccctttrrrzzz-0');
+		
+		var cccs = [];
+		setInterval(()=>{
+			// 管理connection状态【connection是已经建立好的P2P连接】
+				// 释放已失效的connection资源，并从connection列表中清除
+			let len = conns.length
+			for (let i=0; i<len; i++) { // 此处不能直接写“conns.length”，经测，for每次循环都会与conns.length的动态值进行比较
+				let conn = conns.shift()
+				if (conn.open)
+					conns.push(conn)
+				else {
+					cccs.push(conn);
+					//conn.close() // 连接已失效，调用close，释放资源
+				}
+			}
+			
+			// 管理peer状态【peer对象用于 与broker通信】
+			if (!peer)
+				return
+			if (peer.destroyed)
+				return
+			if (peer.disconnected) {
+				try {
+					peer.reconnect() // 若（使用原ID）重新请求broker连接，触发异常，则表示该ID已被其他peer占用 或者 当前peer已destory
+				} catch (err) {
+					peer.destory() // 若 当前peer的ID被其他peer占用，则主动销毁当前peer，主动断开所有已建立的p2p连接（虽然这些连接暂时还是可用的）
+				}
+			}
+		}, 3000);
+		/////////////
+	</script>
+</body>
 </html>
