@@ -1,4 +1,4 @@
-README IUQQ.github.io\\--/tanya-qq.tk
+README IUQQ.github.io\\--/tanya.hi-baby.tk
 -------------------------------------
 
 README:
