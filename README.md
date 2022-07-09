@@ -1,6 +1,14 @@
-README IUQQ.github.io\\--/tanya.hi-baby.tk
--------------------------------------
+div{ background-color: white; border-radius:5px; } a{ text-decoration:none; } ```
 
-README:
 
-iuqq.github.io is a github page that uses a custom domain name and a custom 404 page, which is an error page. Index.html uses the website hi-baby.tk. The translation may not be standard, please understand
+  第一版：
+  增加了最基本的功能
+  [下载](第一版.apk)
+  
+  第二版：
+  提升稳定性，修复已知BUG
+  [下载](第二版.apk)
+    
+
+
+```
