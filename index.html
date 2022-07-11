@@ -2,6 +2,15 @@
 <html>
   <head>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+    (function( $ ){
+  'use strict';
+  // Preloader
+  jQuery(window).load(function() {
+    jQuery(".preloader").fadeOut("slow");
+  });
+})(window.jQuery);
+    </script>
     <style>
 .preloader {
   position: fixed;
@@ -133,20 +142,12 @@
     @font-face {font-family: 'font';src:url('https://tan.hi-baby.tk/FZKTJW.TTF');}
     pre{font-family: font;}
     </style>
-    <script>
-    (function( $ ){
-  'use strict';
-  // Preloader
-  jQuery(window).load(function() {
-    jQuery(".preloader").fadeOut("slow");
-  });
-})(window.jQuery);
-    </script>
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>WebCat</title>
   </head>
   <body style="margin:0">	
-  <div class="preloader"></div> 
+  <div class="preloader"><center style="margin-top:100%">请稍等，我们正在加载中</center></div> 
+
   	<ul>
      <li><a class="active" href="">首页</a></li>
      <li><a href="">搜索</a></li>
