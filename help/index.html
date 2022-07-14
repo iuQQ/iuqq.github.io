@@ -1,161 +1,50 @@
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        function getTime() {
+            var date = new Date();
+            var year = date.getFullYear(); //获取年份
+            var month = date.getMonth() + 1; //获取月份
+            var day = date.getDate(); //获取日期
+            var hour = date.getHours(); //获取小时
+            hour = hour < 10 ? '0' + hour : hour;
+            var minute = date.getMinutes(); // 获取分
+            minute = minute < 10 ? '0' + minute : minute;
+            var seconds = date.getSeconds(); //获取秒
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            return year + '年' + month + '月' + day + '日&nbsp;' + hour + ':' + minute + ':' + seconds;
+        }
+ 
+        setInterval(function() {
+            document.querySelector('.datetime').innerHTML = getTime();//显示在class=datetime的上面
+        }, 100)
+    </script>
+<script>
+    (function( $ ){
+  'use strict';
+  jQuery(window).load(function() { //jquwry监听加载是否完成
+    jQuery(".preloader").fadeOut("slow"); //在class=preloader上显示
+  });
+})(window.jQuery);
+</script>
 <!DOCTYPE html>
 <html>
   <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8457453899574915"
      crossorigin="anonymous"></script>
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <script>
-    (function( $ ){
-  'use strict';
-  // Preloader
-  jQuery(window).load(function() {
-    jQuery(".preloader").fadeOut("slow");
-  });
-})(window.jQuery);
-    </script>
-    <style>
-.preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #FFFFFF;
-  height: 100vh;
-  width: 100%;
-  z-index: 9999;
-}
-
-.preloader:before, .preloader:after {
-  content: '';
-  border: 5px solid #D19A04;
-  width: 80px;
-  height: 80px;
-  border-radius: 500px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -40px 0 0 -40px;
-}
-
-.preloader:before {
-  -webkit-animation: pulse-outer 0.8s ease-in infinite;
-  -moz-animation: pulse-outer 0.8s ease-in infinite;
-  animation: pulse-outer 0.8s ease-in infinite;
-}
-
-.preloader:after {
-  -webkit-animation: pulse-inner 0.8s linear infinite;
-  -moz-animation: pulse-inner 0.8s linear infinite;
-  animation: pulse-inner 0.8s linear infinite;
-}
-
-@-webkit-keyframes pulse-outer {
-  0% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-  }
-  50% {
-    opacity: 0.5;
-    filter: alpha(opacity=50);
-  }
-  100% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-  }
-}
-@-moz-keyframes pulse-outer {
-  0% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-  }
-  50% {
-    opacity: 0.5;
-    filter: alpha(opacity=50);
-  }
-  100% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-  }
-}
-@keyframes pulse-outer {
-  0% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-  }
-  50% {
-    opacity: 0.5;
-    filter: alpha(opacity=50);
-  }
-  100% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-  }
-}
-@-webkit-keyframes pulse-inner {
-  0% {
-    -webkit-transform: scale(0);
-    opacity: 0;
-    filter: alpha(opacity=0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    opacity: 1;
-    filter: alpha(opacity=100);
-  }
-}
-@-moz-keyframes pulse-inner {
-  0% {
-    -moz-transform: scale(0);
-    opacity: 0;
-    filter: alpha(opacity=0);
-  }
-  100% {
-    -moz-transform: scale(1);
-    opacity: 1;
-    filter: alpha(opacity=100);
-  }
-}
-@keyframes pulse-inner {
-  0% {
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    -ms-transform: scale(0);
-    -o-transform: scale(0);
-    transform: scale(0);
-    opacity: 0;
-    filter: alpha(opacity=0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-    filter: alpha(opacity=100);
-  }
-}
-    
-    hr{Border-color: white}
-    a{color:blue;text-decoration:none}
-    ul{list-style-type: none;margin: 0;padding: 0;overflow: hidden;border: 1px solid #e7e7e7;background-color: #f3f3f3;}
-    li{float:left;}
-    li a {display: block;color: #666;text-align: center;padding: 14px 16px;text-decoration: none;}  
-    li a:hover:not(.active) {background-color: #ddd;}
-    li a.active {color: white;background-color: #4CAF50;}
-    @font-face {font-family: 'font';src:url('https://tan.hi-baby.tk/FZKTJW.TTF');}
-    pre{font-family: font;}
-    </style>
+  <link rel="stylesheet" type="text/css" href="../style.css">
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>WebCat</title>
   </head>
   <body style="margin:0;">	
   <div class="preloader"></div> 
 
+    <div style="font-size:10px;" class="datetime"></div>
+    
   	<ul>
      <li><a href="../index.html">首页</a></li>
      <li><a href="../so/index.html">搜索</a></li>
-     <li><a class="active" href="index.html">帮助</a></li>
-     <li><a href="../login/index.html">登录</a></li>
+     <li><a href="../help/index.html">帮助</a></li>
+     <li><a class="active" href="index.html">登录</a></li>
     </ul>
     
   </body>
