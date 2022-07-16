@@ -6,15 +6,3 @@
     .li a {display: block;color: #666;text-align: center;padding: 14px 16px;text-decoration: none;}  
     .li a:hover:not(.active) {background-color: #ddd;}
     .li a.active {color: white;background-color:#05c900;background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.d7b0e91854b9e573ea8cbacef3e07707?rik=aqEI8KgZy%2bwfMA&riu=http%3a%2f%2fsiliconangle.com%2ffiles%2f2014%2f02%2fAndroid1.jpg&ehk=nXF3YtK%2bgqN8C5FNfN%2fqU9LVkXvyaChWfTbVVDoB%2fhw%3d&risl=&pid=ImgRaw&r=0');background-repeat:no-repeat;background-position: bottom right;background-size: 100%;}
-    @font-face {font-family: 'font';src:url('https://tan.hi-baby.tk/FZKTJW.TTF');}
-    pre{font-family: font;}
-    
-/* 重要css */
-    .app_intro .Qimgs{background:#fff;margin:0 8px;position:relative;overflow:hidden;height:205px;border-top:0px solid #ff6300;padding-top:0;}
-.app_intro .Qimgs ul{white-space:nowrap;padding-bottom:10px;overflow-y:auto;overflow-x:auto;}
-.app_intro .Qimgs li{display:inline-block;margin-right:6px;}
-.app_intro .Qimgs li img{width:auto;height:200px!important;;}
-.app_soft_bd li{overflow:hidden;padding:10px;border-bottom:1px dashed #ccc;}
-.app_soft_bd li:last-child{border-bottom:none;}
-.app_soft_bd .img{width:66px;height:66px;border-radius:8px;float:left;margin-right:7px;}
-.app_soft_bd li a{display:block;height:66px;position:relative;overflow:hidden;}
