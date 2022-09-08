@@ -140,6 +140,15 @@
       <li type="button" id="switch-theme" class="mdui-list-item mdui-ripple">
 		<span id="switch-theme">切换主题</span>
       </li>
+      <li onclick="qq()" class="mdui-list-item mdui-ripple">
+		<span>作者的QQ</span>
+      </li>
+      <li onclick="gz()" class="mdui-list-item mdui-ripple">
+		<span>复制地址</span>
+      </li>
+      <li onclick="ex()" class="mdui-list-item mdui-ripple">
+		<span>关闭页面</span>
+      </li>
     </ul>
   </div>
  
@@ -172,6 +181,19 @@ $('#drawer').on('open.mdui.drawer', function () {
             (localStorage.darkTheme = true) :
             (delete localStorage.darkTheme)
     );
+</script>
+<script src="wc.js"></script>
+<script>
+function qq(){
+wc.goQQFriend(1294036993);
+}
+function gz(){
+wc.setShearPlate("1111111111.gzpy.tk");
+wc.alert("复制成功(๑•ั็ω•็ั๑)");
+}
+function ex(){
+wc.exit();
+}
 </script>
   </body>
 </html>
