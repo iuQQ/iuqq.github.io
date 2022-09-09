@@ -12,6 +12,10 @@
 })(window.jQuery);
 </script>
   	<style>
+   #sd{
+     width:85%;
+     box-shadow: 0.3px 0.3px 1px 1.5px;
+     }
    li{
      list-style:none
      }
@@ -185,9 +189,52 @@ mui.init({
 </script>
 <script>
 function qq(){
-    mdui.alert("已跳转QQ");
-    window.open("https://qm.qq.com/cgi-bin/qm/qr?k=b8n54TezhRhlKxpZAqJBfSVBF8E3chEz&noverify=0&personal_qrcode_source=3")
+    mdui.alert("正在跳转QQ");
+    window.location.href = "https://qm.qq.com/cgi-bin/qm/qr?k=b8n54TezhRhlKxpZAqJBfSVBF8E3chEz&noverify=0&personal_qrcode_source=3";
 }
+</script>
+<script>
+    //创建XML文件对象
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        //XMLHttpRequest 对象用于在后台与服务器交换数据。
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {
+        // code for IE6, IE5
+        // ActiveXObject 对象构造函数来启动应用程序
+        //Xmlhttp是一种浏览器对象， 可用于模拟http的GET和POST请求。
+        //配合JavaScript可以实现页面数据在无刷新下的定时数据更新。
+
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    //发送一个http请求 （打开xml文件）
+    //用open可以指定get,post 
+    /*第一个参数是请求方式，p
+     * 第二个参数是文件地址，
+     * 第三个参数为是否为异步（默认为true(是) / false(否) ）*/
+    xmlhttp.open("GET", "wen.xml", false);
+
+    /*使用Ajax提交的参数多是些简单的字符串，
+     * 可以直接使用GET方法将要提交的参数写到open方法的url参数中，
+     * 此时send方法的参数为null。*/
+    xmlhttp.send();
+    //属性返回 XML 文档对象
+    xmlDoc = xmlhttp.responseXML;
+    //得到标签
+    var x = xmlDoc.getElementsByTagName("CD");
+    //拼接成html
+    document.write("<br><center><div id='sd' align='left'>");
+    for (i = 0; i < x.length; i++)
+    {
+        document.write("<span>");
+        document.write(x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue);
+        document.write("<br></span><br><span>");
+        document.write(x[i].getElementsByTagName("DATA")[0].childNodes[0].nodeValue);
+        document.write("<br></span>");
+    	document.write("<hr/>")
+    }
+    document.write("</div></center>");
 </script>
   </body>
 </html>
