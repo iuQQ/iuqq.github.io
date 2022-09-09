@@ -143,17 +143,11 @@
       <li onclick="qq()" class="mdui-list-item mdui-ripple">
 		<span>作者的QQ</span>
       </li>
-      <li onclick="gz()" class="mdui-list-item mdui-ripple">
-		<span>复制地址</span>
-      </li>
-      <li onclick="ex()" class="mdui-list-item mdui-ripple">
-		<span>关闭页面</span>
-      </li>
     </ul>
   </div>
- 
+
    <div style="line-height:2.8pc;background-color:#0063d2">
-   <span style="float:left;"><img style="Vertical-align:middle" id="open" width="28" height="28" src="https://img1.imgtp.com/2022/09/08/aE9M4ZKd.png"></span></a>   
+   <span style="float:left;"><img style="Vertical-align:middle;margin:1px" id="open" width="27" height="27" src="https://img1.imgtp.com/2022/09/08/aE9M4ZKd.png"></span></a>   
    <span style="color:white;">弹呀博客</span>
    <span style="float:right;"><img onclick="location.reload();" style="Vertical-align:middle" width="35" height="35" src="https://img1.imgtp.com/2022/09/06/XerrfWGj.png"></span></a>   
    </div>
@@ -182,17 +176,17 @@ $('#drawer').on('open.mdui.drawer', function () {
             (delete localStorage.darkTheme)
     );
 </script>
-<script src="wc.js"></script>
+<script>
+mui.init({
+	gestureConfig: {
+		longtap:true, //默认为false
+	}
+});
+</script>
 <script>
 function qq(){
-wc.goQQFriend(1294036993);
-}
-function gz(){
-wc.setShearPlate("1111111111.gzpy.tk");
-wc.alert("复制成功(๑•ั็ω•็ั๑)");
-}
-function ex(){
-wc.exit();
+    mdui.alert("已跳转QQ");
+    window.open("https://qm.qq.com/cgi-bin/qm/qr?k=b8n54TezhRhlKxpZAqJBfSVBF8E3chEz&noverify=0&personal_qrcode_source=3")
 }
 </script>
   </body>
