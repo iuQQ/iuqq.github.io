@@ -154,7 +154,7 @@
 
   <div class="mdui-drawer" id="drawer">
     <ul class="mdui-list">
-      <li type="button" id="switch-theme" class="mdui-list-item mdui-ripple">
+      <li id="switch-theme" class="mdui-list-item mdui-ripple">
 		<span id="switch-theme">切换主题</span>
       </li>
       <li onclick="qq()" class="mdui-list-item mdui-ripple">
@@ -197,7 +197,7 @@ mui.init({
 <script>
 function qq(){
     mdui.alert("正在跳转QQ");
-    window.location.href = "https://qm.qq.com/cgi-bin/qm/qr?k=b8n54TezhRhlKxpZAqJBfSVBF8E3chEz&noverify=0&personal_qrcode_source=3";
+    window.open ("https://qm.qq.com/cgi-bin/qm/qr?k=b8n54TezhRhlKxpZAqJBfSVBF8E3chEz&noverify=0&personal_qrcode_source=3");
 }
 </script>
 <script>
@@ -232,8 +232,8 @@ function qq(){
     var x = xmlDoc.getElementsByTagName("CD");
     //拼接成html
     document.write("<center><div id='sd' align='left'>");
-    for (i = 0; i < x.length; i++)
-    {
+    for (i = 0; i < x.length; i++){
+      
 document.write('<div class="mdui-col-md-10 mdui-col-offset-md-1">')
 document.write('<div class="mdui-card mdui-m-y-3">')
 document.write('<div class="mdui-card-media">')
