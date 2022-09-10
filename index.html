@@ -2,7 +2,6 @@
 <html>
   <head>
   <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
-  <i class="mdui-icon material-icons">search</i>
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
   <script>
       (function( $ ){
@@ -142,22 +141,27 @@
 		<div class="loader-line-wrap"><div class="loader-line"></div></div></div>
 </div>
 
+<div class="mdui-toolbar mdui-color-indigo mdui-appbar-scroll-toolbar-hide mdui-shadow-3">
+  <a href="javascript:;" class="mdui-btn mdui-btn-icon">
+    <i class="mdui-icon material-icons" id="open">menu</i>
+  </a>
+  <span style="margin-left:0" class="mdui-typo-title">弹呀博客</span>
+  <div class="mdui-toolbar-spacer"></div>
+  <a href=" " class="mdui-btn mdui-btn-icon">
+    <i class="mdui-icon material-icons">refresh</i>
+  </a>
+</div>
+
   <div class="mdui-drawer" id="drawer">
     <ul class="mdui-list">
       <li type="button" id="switch-theme" class="mdui-list-item mdui-ripple">
 		<span id="switch-theme">切换主题</span>
       </li>
       <li onclick="qq()" class="mdui-list-item mdui-ripple">
-		<span>作者的QQ</span>
+		<span>作者QQ</span>
       </li>
     </ul>
   </div>
-
-   <div style="line-height:2.8pc;background-color:#0063d2">
-   <span style="float:left;"><img style="Vertical-align:middle;margin:1px" id="open" width="27" height="27" src="https://img1.imgtp.com/2022/09/08/aE9M4ZKd.png"></span></a>   
-   <span style="color:white;">弹呀博客</span>
-   <span style="float:right;"><img onclick="location.reload();" style="Vertical-align:middle" width="35" height="35" src="https://img1.imgtp.com/2022/09/06/XerrfWGj.png"></span></a>   
-   </div>
 
 <script src="mdui.js"></script>
 <script>
