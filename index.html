@@ -231,20 +231,18 @@ function qq(){
     //得到标签
     var x = xmlDoc.getElementsByTagName("CD");
     //拼接成html
-    document.write("<br><center><div id='sd' align='left'>");
+    document.write("<center><div id='sd' align='left'>");
     for (i = 0; i < x.length; i++)
     {
 document.write('<div class="mdui-col-md-10 mdui-col-offset-md-1">')
 document.write('<div class="mdui-card mdui-m-y-3">')
 document.write('<div class="mdui-card-media">')
-
         document.write("<div id='sg'><span>");
         document.write(x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue);
         document.write("<br></span><br><span>");
         document.write(x[i].getElementsByTagName("DATA")[0].childNodes[0].nodeValue);
         document.write("<br></span>");
     	document.write("</div>")
-
 document.write('<div class="mdui-card-media-covered">')
 document.write('<div class="mdui-card-primary">')
 document.write('</div>')
