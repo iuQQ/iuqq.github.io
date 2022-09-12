@@ -12,6 +12,12 @@
 })(window.jQuery);
 </script>
   	<style>
+   #title{
+     height:55px;
+     position:fixed;
+     top:0;
+     z-index:1;
+     }
    #sg{
      margin:10px;
      }
@@ -141,13 +147,13 @@
 		<div class="loader-line-wrap"><div class="loader-line"></div></div></div>
 </div>
 
-<div class="mdui-toolbar mdui-color-indigo mdui-appbar-scroll-toolbar-hide mdui-shadow-3">
+<div id="title" class="mdui-toolbar mdui-color-indigo mdui-appbar-scroll-toolbar-hide mdui-shadow-3" mdui-headroom="options">
   <a href="javascript:;" class="mdui-btn mdui-btn-icon">
     <i class="mdui-icon material-icons" id="open">menu</i>
   </a>
   <span style="margin-left:0" class="mdui-typo-title">弹呀博客</span>
   <div class="mdui-toolbar-spacer"></div>
-  <a href=" " class="mdui-btn mdui-btn-icon">
+  <a href="" class="mdui-btn mdui-btn-icon">
     <i class="mdui-icon material-icons">refresh</i>
   </a>
 </div>
@@ -158,12 +164,15 @@
 		<span id="switch-theme">切换主题</span>
       </li>
       <li onclick="qq()" class="mdui-list-item mdui-ripple">
-		<span>作者QQ</span>
+        <span>作者QQ</span>
+      </li>
+      <li onclick="xie()" class="mdui-list-item mdui-ripple">
+        <span>编辑文章</span>
       </li>
     </ul>
   </div>
 
-<script src="mdui.js"></script>
+<script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
 <script>
 var $ = mdui.$;
 var inst = new mdui.Drawer('#drawer');
@@ -171,7 +180,6 @@ $('#open').on('click', function () {
   inst.open();
 });
 $('#drawer').on('open.mdui.drawer', function () {
-  console.log('open');
 });
 </script>
 <script>
@@ -196,8 +204,17 @@ mui.init({
 </script>
 <script>
 function qq(){
-    mdui.alert("正在跳转QQ");
-    window.open ("https://qm.qq.com/cgi-bin/qm/qr?k=b8n54TezhRhlKxpZAqJBfSVBF8E3chEz&noverify=0&personal_qrcode_source=3");
+    mdui.alert("正在跳转");
+setTimeout(function () {
+        window.open ("https://qm.qq.com/cgi-bin/qm/qr?k=b8n54TezhRhlKxpZAqJBfSVBF8E3chEz&noverify=0&personal_qrcode_source=3");
+}, 1000);
+}
+
+function xie(){
+    mdui.alert("正在跳转");
+setTimeout(function () {
+        window.open ("admin/index.html");
+}, 1000);
 }
 </script>
 <script>
@@ -231,7 +248,7 @@ function qq(){
     //得到标签
     var x = xmlDoc.getElementsByTagName("CD");
     //拼接成html
-    document.write("<center><div id='sd' align='left'>");
+    document.write("<br><br><br><center><div id='sd' align='left'>");
     for (i = 0; i < x.length; i++){
       
 document.write('<div class="mdui-col-md-10 mdui-col-offset-md-1">')
