@@ -132,7 +132,7 @@
       }
     </style>
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>弹呀博客</title>
+	<title>宋楠槐就是大傻逼</title>
   </head>
   <body style="margin:0;">	
    
@@ -151,7 +151,7 @@
   <a href="javascript:;" class="mdui-btn mdui-btn-icon">
     <i class="mdui-icon material-icons" id="open">menu</i>
   </a>
-  <span style="margin-left:0" class="mdui-typo-title">弹呀博客</span>
+  <span style="margin-left:0" class="mdui-typo-title">大傻逼是宋楠槐</span>
   <div class="mdui-toolbar-spacer"></div>
   <a href="" class="mdui-btn mdui-btn-icon">
     <i class="mdui-icon material-icons">refresh</i>
@@ -160,14 +160,14 @@
 
   <div class="mdui-drawer" id="drawer">
     <ul class="mdui-list">
-      <li id="switch-theme" class="mdui-list-item mdui-ripple">
-		<span id="switch-theme">切换主题</span>
-      </li>
       <li onclick="qq()" class="mdui-list-item mdui-ripple">
-        <span>作者QQ</span>
+        <span>宋楠槐是傻逼</span>
       </li>
       <li onclick="xie()" class="mdui-list-item mdui-ripple">
-        <span>编辑文章</span>
+        <span>宋楠槐活着浪费空气，死了浪费土地</span>
+      </li>
+      <li onclick="img()" class="mdui-list-item mdui-ripple">
+        <span>宋楠槐死全家</span>
       </li>
     </ul>
   </div>
@@ -183,11 +183,11 @@ $('#drawer').on('open.mdui.drawer', function () {
 });
 </script>
 <script>
-    //在所有希望保留深色主题的页面里保留
+    //åœ¨æ‰€æœ‰å¸Œæœ›ä¿�ç•™æ·±è‰²ä¸»é¢˜çš„é¡µé�¢é‡Œä¿�ç•™
     if(localStorage.darkTheme)
         document.body.classList.add("mdui-theme-layout-dark");
 
-    //在有切换按钮的页面保留
+    //åœ¨æœ‰åˆ‡æ�¢æŒ‰é’®çš„é¡µé�¢ä¿�ç•™
     document.getElementById("switch-theme").addEventListener(
         "click",
         () => document.body.classList.toggle("mdui-theme-layout-dark") ?
@@ -198,65 +198,63 @@ $('#drawer').on('open.mdui.drawer', function () {
 <script>
 mui.init({
 	gestureConfig: {
-		longtap:true, //默认为false
+		longtap:true, //é»˜è®¤ä¸ºfalse
 	}
 });
 </script>
 <script>
+function img(){
+    mdui.alert("就是");
+}
+
 function qq(){
-    mdui.alert("正在跳转");
-setTimeout(function () {
-        window.open ("https://qm.qq.com/cgi-bin/qm/qr?k=b8n54TezhRhlKxpZAqJBfSVBF8E3chEz&noverify=0&personal_qrcode_source=3");
-}, 1000);
+    mdui.alert("是的");
 }
 
 function xie(){
-    mdui.alert("正在跳转");
-setTimeout(function () {
-        window.open ("admin/index.html");
-}, 1000);
+    mdui.alert("没错");
 }
 </script>
 <script>
-    //创建XML文件对象
+    //åˆ›å»ºXMLæ–‡ä»¶å¯¹è±¡
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
-        //XMLHttpRequest 对象用于在后台与服务器交换数据。
+        //XMLHttpRequest å¯¹è±¡ç”¨äºŽåœ¨å�Žå�°ä¸Žæœ�åŠ¡å™¨äº¤æ�¢æ•°æ�®ã€‚
         xmlhttp = new XMLHttpRequest();
     }
     else {
         // code for IE6, IE5
-        // ActiveXObject 对象构造函数来启动应用程序
-        //Xmlhttp是一种浏览器对象， 可用于模拟http的GET和POST请求。
-        //配合JavaScript可以实现页面数据在无刷新下的定时数据更新。
+        // ActiveXObject å¯¹è±¡æž„é€ å‡½æ•°æ�¥å�¯åŠ¨åº”ç”¨ç¨‹åº�
+        //Xmlhttpæ˜¯ä¸€ç§�æµ�è§ˆå™¨å¯¹è±¡ï¼Œ å�¯ç”¨äºŽæ¨¡æ‹Ÿhttpçš„GETå’ŒPOSTè¯·æ±‚ã€‚
+        //é…�å�ˆJavaScriptå�¯ä»¥å®žçŽ°é¡µé�¢æ•°æ�®åœ¨æ— åˆ·æ–°ä¸‹çš„å®šæ—¶æ•°æ�®æ›´æ–°ã€‚
 
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    //发送一个http请求 （打开xml文件）
-    //用open可以指定get,post 
-    /*第一个参数是请求方式，p
-     * 第二个参数是文件地址，
-     * 第三个参数为是否为异步（默认为true(是) / false(否) ）*/
-    xmlhttp.open("GET", "wen.xml", false);
+    //å�‘é€�ä¸€ä¸ªhttpè¯·æ±‚ ï¼ˆæ‰“å¼€xmlæ–‡ä»¶ï¼‰
+    //ç”¨openå�¯ä»¥æŒ‡å®šget,post 
+    /*ç¬¬ä¸€ä¸ªå�‚æ•°æ˜¯è¯·æ±‚æ–¹å¼�ï¼Œp
+     * ç¬¬äºŒä¸ªå�‚æ•°æ˜¯æ–‡ä»¶åœ°å�€ï¼Œ
+     * ç¬¬ä¸‰ä¸ªå�‚æ•°ä¸ºæ˜¯å�¦ä¸ºå¼‚æ­¥ï¼ˆé»˜è®¤ä¸ºtrue(æ˜¯) / false(å�¦) ï¼‰*/
+    xmlhttp.open("GET", "1.xml", false);
 
-    /*使用Ajax提交的参数多是些简单的字符串，
-     * 可以直接使用GET方法将要提交的参数写到open方法的url参数中，
-     * 此时send方法的参数为null。*/
+    /*ä½¿ç”¨Ajaxæ��äº¤çš„å�‚æ•°å¤šæ˜¯äº›ç®€å�•çš„å­—ç¬¦ä¸²ï¼Œ
+     * å�¯ä»¥ç›´æŽ¥ä½¿ç”¨GETæ–¹æ³•å°†è¦�æ��äº¤çš„å�‚æ•°å†™åˆ°openæ–¹æ³•çš„urlå�‚æ•°ä¸­ï¼Œ
+     * æ­¤æ—¶sendæ–¹æ³•çš„å�‚æ•°ä¸ºnullã€‚*/
     xmlhttp.send();
-    //属性返回 XML 文档对象
+    //å±žæ€§è¿”å›ž XML æ–‡æ¡£å¯¹è±¡
     xmlDoc = xmlhttp.responseXML;
-    //得到标签
+    //å¾—åˆ°æ ‡ç­¾
     var x = xmlDoc.getElementsByTagName("CD");
-    //拼接成html
+    //æ‹¼æŽ¥æˆ�html
     document.write("<br><br><br><center><div id='sd' align='left'>");
     for (i = 0; i < x.length; i++){
       
 document.write('<div class="mdui-col-md-10 mdui-col-offset-md-1">')
 document.write('<div class="mdui-card mdui-m-y-3">')
 document.write('<div class="mdui-card-media">')
-        document.write("<div id='sg'><span>");
+        document.write("<div id='sg'><span><b>");
         document.write(x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue);
-        document.write("<br></span><br><span>");
+        document.write("</b><br></span><br><span>");
         document.write(x[i].getElementsByTagName("DATA")[0].childNodes[0].nodeValue);
         document.write("<br></span>");
     	document.write("</div>")
@@ -270,5 +268,5 @@ document.write('</div>')
 }
     document.write("</div></center>");
 </script>
-  </body>
+<center style="position: fixed;bottom:0px;left:23vh"><span>宋楠槐是大傻逼</span></center>
 </html>
