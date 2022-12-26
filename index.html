@@ -52,7 +52,7 @@
         method:"post",
         data:{
         appId:"54340",
-        appKey:"af126aec3fff4e48bbcdd76cbfc9cf85"
+        tokenId:""
       },
         success: function(res){
         console.log(res.code)
@@ -75,13 +75,21 @@
     window.open(url)
     }
     
-    k = document.location.search
-    p = k.split('?')
-    console.log(p)
-    l = p[1].split("=")
-    console.log(l)
-    f = l[1]
-    console.log(f)
+            x = document.location.search
+            y = x.split('?')
+            console.log(y)
+            if (y[1].split("=").length > 1){
+                l = y[1].split("&")
+                console.log(l)
+                ds = l[0].split("=")
+                console.log(ds)
+                f = ds[1]
+            }else{
+            l = y[1].split("=")
+            console.log(l)
+            f = l[1]
+            console.log(f)
+            }
             
     $.ajax({
         url:"http://service.kefantx.com:88/hxd/selectPublicNormalTable",
