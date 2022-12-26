@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>查询数据</title>
+  </head>
+  <body>
+    页数：<input id="l" type="text"/>
+    <button id="a" type="submit">确定</button>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    a.onclick = function (){
+    x = document.getElementById("l").value
+    $.ajax({
+        url:"http://service.kefantx.com:88/hxd/selectPublicNormalTable",
+        method:"post",
+        data:{
+        appId:"54340",
+        appKey:"af126aec3fff4e48bbcdd76cbfc9cf85",
+        page: x
+      },
+        success: function(res){
+        x = res.datas
 
+for(var i = 0; i < x.length; i++){
+    console.log(x[i]); 
+    l = x[i]
+}
+        }
+    })
+    }
+    </script>
+  </body>
+</html>
