@@ -6,10 +6,10 @@
   </head>
   <body>
     <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li><a id="a1">首页</a></li>
+        <li><a id="a2">发文</a></li>
+        <li><a id="a3">举报</a></li>
+        <li><a id="a4">我的</a></li>
     </ul>
     <div id="1">
     1.   
@@ -70,8 +70,10 @@
         if (res.code == 500){
             window.alert("token值无效，即将跳转登录")
             window.open("http://hxd.kefantx.com/#/pages/login/login?appId=54340&appName=000")
+			token = false
         }else{
             window.alert("token值有效")
+			token = true
         }
        }
       })
