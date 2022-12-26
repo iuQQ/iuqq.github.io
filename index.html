@@ -47,12 +47,23 @@
     <script>
     var vConsole = new VConsole();
     
+            qw = document.location.search
+            qe = qw.split('?')
+            console.log(qe)
+            if (qe[1].split("=").length > 1){
+                qr = qe[1].split("&")
+                console.log(qr)
+                qt = qr[2].split("=")
+                console.log(qt)
+                qy = qt[1]
+            }
+    
     $.ajax({
         url:"http://service.kefantx.com:88/hxd/checkToken",
         method:"post",
         data:{
         appId:"54340",
-        tokenId:""
+        tokenId:qy
       },
         success: function(res){
         console.log(res.code)
