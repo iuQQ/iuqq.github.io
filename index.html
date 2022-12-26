@@ -27,6 +27,10 @@
 	    .action{
 	        border: 1px solid red;
 	    }
+	    
+	    .als{
+	        border: 1px solid ;
+	    }
 	</style>
   </head>
   <body>
@@ -38,13 +42,13 @@
     </ul>
     <script type="text/javascript" charset="utf-8">
         a2.onclick = function (){
-                window.open("write/1.html")
+                window.open("https://1.gzpy/write/1.html")
         }
         a3.onclick = function (){
-                window.open("jvbao/1.html")
+                window.open("https://1.gzpy.tk/jvbao/1.html")
         }
         a4.onclick = function (){
-                window.open("wode/1.html")
+                window.open("https://1.gzpy.tk/wode/1.html")
         }
     </script>
     <br />
@@ -83,13 +87,15 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.js" type="text/javascript" charset="utf-8"></script>
     <script>
     var vConsole = new VConsole();
+    
+    if (document.location.search == ""){
+        window.open("https://1.gzpy.tk/index.html/page=1")
+    }
     </script>
     页数：<input id="l" type="text"/>
     <button id="a" type="submit">确定</button>
     <script type="text/javascript" charset="utf-8">
-    x = 1
     a.onclick = function (){
-    x = document.getElementById("l").value
     url = "https://1.gzpy.tk/index.html?page=".concat(x)
     window.open(url)
     }
@@ -129,7 +135,7 @@ while(i < x.length){
     i++
     id = "#".concat(i)
     console.log(id)
-    $(id).html("<div class='action'>" + i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "</div>" + "<br><br>")
+    $(id).html("<div class='action'>" + i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "</div>" + "<div class='als><br><br></div>")
 }
         }
     })
