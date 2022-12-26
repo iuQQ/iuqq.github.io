@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>检测token是否有效</title>
+  </head>
+  <body>	
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    $.ajax({
+        url:"http://service.kefantx.com:88/hxd/checkToken",
+        method:"post",
+        data:{
+        appId:"54340",
+        appKey:"af126aec3fff4e48bbcdd76cbfc9cf85"
+      },
+        success: function(res){
+        console.log(res.code)
+        if (res.code == 500){
+            window.alert("token值无效，即将跳转登录")
+            window.open("login/2.html")
+        }else{
+            window.alert("token值有效")
+        }
+       }
+      })
+    </script>
+  </body>
+</html>
