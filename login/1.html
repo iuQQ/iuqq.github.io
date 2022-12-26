@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>注册</title>
+  </head>
+  <style type="text/css" media="all">
+     .action{
+         display: block;
+     }
+  
+     div{
+         width: 100%;
+         height: 100%;
+         position: absolute;
+         background-color: white;
+         display: none;
+     } 
+  </style>
+  <body>
+    <div>
+        提交中，请耐心等待
+    </div>
+    账户：<input id="u" type="text"/><br />
+    密码：<input id="p" type="password"/><br />
+    UID：<input id="i" type="text"/>
+    <button id="sut" type="submit">提交</button>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    sut.onclick = function (){
+    $("div").addClass("action")
+    var u = document.getElementById("u").value
+    var p = document.getElementById("p").value
+    var i = document.getElementById("i").value
+    var s = [u,p,i]
+    console.log(s)
+    
+    $.ajax({
+      url:"http://service.kefantx.com:88/hxd/insertPublicNormalTable",
+      method:"post",
+      data:{
+        appId:"54340",
+        appKey:"af126aec3fff4e48bbcdd76cbfc9cf85",
+        userId:i,
+        String1:u,
+        String2:p
+      },
+      success: function(res){
+          console.log(res)
+          document.write('注册成功，请记住你的账户<br>')
+          document.write('3秒后跳转登录页面')
+          function jumurl(){
+　    　window.location.href = '2.html';
+　    　}
+　　    setTimeout(jumurl,3000);
+          }
+      })
 
+    }
+        </script>
+  </body>
+</html>
