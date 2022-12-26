@@ -27,10 +27,6 @@
 	    .action{
 	        border: 1px solid red;
 	    }
-	    
-	    .als{
-	        border: 1px solid ;
-	    }
 	</style>
   </head>
   <body>
@@ -135,7 +131,7 @@ while(i < x.length){
     i++
     id = "#".concat(i)
     console.log(id)
-    $(id).html("<div class='action'>" + i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "</div>" + "<div class='als><br><br></div>")
+    $(id).html("<div class='action'>" + i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "</div>" + "<br><br>")
 }
         }
     })
