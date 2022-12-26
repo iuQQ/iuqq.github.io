@@ -2,9 +2,46 @@
 <html>
   <head>
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>检测token是否有效</title>
+	<title>论坛</title>
   </head>
-  <body>	
+  <body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div id="1">
+    1.   
+    </div>
+    <div id="2">
+    2.
+    </div>
+    <div id="3">
+    3.
+    </div>
+    <div id="4">
+    4.   
+    </div>
+    <div id="5">
+    5.
+    </div>
+    <div id="6">
+    6.
+    </div>
+    <div id="7">
+    7.   
+    </div>
+    <div id="8">
+    8.
+    </div>
+    <div id="9">
+    9.
+    </div>
+    <div id="10">
+    10.  
+    </div>
+    
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.js" type="text/javascript" charset="utf-8"></script>
     <script>
     $.ajax({
@@ -18,12 +55,54 @@
         console.log(res.code)
         if (res.code == 500){
             window.alert("token值无效，即将跳转登录")
-            window.open("login/2.html")
+            window.open("http://hxd.kefantx.com/#/pages/login/login?appId=54340&appName=000")
         }else{
             window.alert("token值有效")
         }
        }
       })
+    </script>
+    页数：<input id="l" type="text"/>
+    <button id="a" type="submit">确定</button>
+    <script type="text/javascript" charset="utf-8">
+    x = 1
+    a.onclick = function (){
+    x = document.getElementById("l").value
+    url = "https://1.gzpy.tk/index.html?page=".concat(x)
+    window.open(url)
+    }
+    
+    k = document.location.search
+    p = k.split('?')
+    console.log(p)
+    l = p[1].split("=")
+    console.log(l)
+    f = l[1]
+    console.log(f)
+            
+    $.ajax({
+        url:"http://service.kefantx.com:88/hxd/selectPublicNormalTable",
+        method:"post",
+        data:{
+        appId:"54340",
+        appKey:"af126aec3fff4e48bbcdd76cbfc9cf85",
+        page: f
+      },
+        success: function(res){
+        x = res.datas
+
+i = 0
+while(i < x.length){
+    console.log(x[i]); 
+    l = x[i]
+    console.log(l.appid)
+    i++
+    id = "#".concat(i)
+    console.log(id)
+    $(id).html(i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "<br><br>")
+}
+        }
+    })
     </script>
   </body>
 </html>
