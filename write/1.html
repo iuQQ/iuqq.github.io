@@ -31,21 +31,18 @@
     </script>
     <script type="text/javascript" charset="utf-8">
             qw = document.location.search
-            if (qw == ""){
-            window.alert("token值无效，即将跳转登录")
-            window.open("http://hxd.kefantx.com/#/pages/login/login?appId=54340&appName=000")
-            }
-            
             qe = qw.split('?')
             console.log(qe)
-            if (qe[1].split("=").length > 1){
+            if (qw != ""){
                 qr = qe[1].split("&")
                 console.log(qr)
                 qt = qr[2].split("=")
                 console.log(qt)
                 qy = qt[1]
+            }else{
+                qy = "apdxucehwxkf13socjwhfi"
             }
-    
+
     $.ajax({
         url:"http://service.kefantx.com:88/hxd/checkToken",
         method:"post",
@@ -64,14 +61,13 @@
 			token = true
 			id = res.datas[0].USERID
 			console.log(res)
+		//这一段代码因未知原因未执行导致id变量未创建会导致出现错误
         }
        }
       })
-      
     </script>
     <script>
     function dian(){
-    console.log("测试1")
     $("div").addClass("action")
     u = document.getElementById("u").value
     p = document.getElementById("p").value
