@@ -3,14 +3,51 @@
   <head>
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>论坛</title>
+	<style type="text/css" media="all">
+	    *{
+	      margin: 0;  
+	      padding: 0;
+	    }
+	    
+	    ul{
+	        overflow: hidden;
+	        margin: 0;
+            padding: 0;
+	        list-style-type: none;
+	    }
+	    
+	    li{
+	        width: 25%;
+	        line-height: 50px;
+	        background-color: grey;
+	        text-align: center;
+	        float: left;
+	    }
+	    
+	    .action{
+	        border: 1px solid red;
+	    }
+	</style>
   </head>
   <body>
     <ul>
-        <li><a id="a1">首页</a></li>
-        <li><a id="a2">发文</a></li>
-        <li><a id="a3">举报</a></li>
-        <li><a id="a4">我的</a></li>
+        <a id="a1"><li>首页</li></a>
+        <a id="a2"><li>发文</li></a>
+        <a id="a3"><li>举报</li></a>
+        <a id="a4"><li>我的</li></a>
     </ul>
+    <script type="text/javascript" charset="utf-8">
+        a2.onclick = function (){
+                window.open("write/1.html")
+        }
+        a3.onclick = function (){
+                window.open("jvbao/1.html")
+        }
+        a4.onclick = function (){
+                window.open("wode/1.html")
+        }
+    </script>
+    <br />
     <div id="1">
     1.   
     </div>
@@ -46,37 +83,6 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.js" type="text/javascript" charset="utf-8"></script>
     <script>
     var vConsole = new VConsole();
-    
-            qw = document.location.search
-            qe = qw.split('?')
-            console.log(qe)
-            if (qe[1].split("=").length > 1){
-                qr = qe[1].split("&")
-                console.log(qr)
-                qt = qr[2].split("=")
-                console.log(qt)
-                qy = qt[1]
-            }
-    
-    $.ajax({
-        url:"http://service.kefantx.com:88/hxd/checkToken",
-        method:"post",
-        data:{
-        appId:"54340",
-        tokenId:qy
-      },
-        success: function(res){
-        console.log(res.code)
-        if (res.code == 500){
-            window.alert("token值无效，即将跳转登录")
-            window.open("http://hxd.kefantx.com/#/pages/login/login?appId=54340&appName=000")
-			token = false
-        }else{
-            window.alert("token值有效")
-			token = true
-        }
-       }
-      })
     </script>
     页数：<input id="l" type="text"/>
     <button id="a" type="submit">确定</button>
@@ -123,7 +129,7 @@ while(i < x.length){
     i++
     id = "#".concat(i)
     console.log(id)
-    $(id).html(i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "<br><br>")
+    $(id).html("<div class='action'>" + i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "</div>" + "<br><br>")
 }
         }
     })
