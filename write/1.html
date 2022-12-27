@@ -24,6 +24,9 @@
     标题：<input id="u" type="text"/><br />
     内容：<input id="p" type="text"/><br />
     <button onclick="dian()" type="submit">提交</button>
+    <div id="dv">
+        
+    </div>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>  
     <script src="https://unpkg.com/vconsole@3.15.0/dist/vconsole.min.js" type="text/javascript" charset="utf-8"></script>
     <script>
@@ -33,14 +36,12 @@
             qw = document.location.search
             qe = qw.substring(1)
             console.log(qe)
-            if (qw != ""){
-                qr = qe[1].split("&")
-                console.log(qr)
-                qt = qr[2].split("=")
-                console.log(qt)
-                qy = qt[1]
+            if (qw == ""){
+                qy = ''
             }else{
-                qy = "apdxucehwxkf13socjwhfi"
+                qf = qe.split('&')
+                qg = qf[2].split('=')
+                qy = qg[1]
             }
 
     $.ajax({
@@ -58,10 +59,11 @@
 			token = false
         }else{
             window.alert("token值有效")
+            lk = '您的token： ' + qy
+            $('#dv').html(lk)
 			token = true
 			id = res.datas[0].USERID
-			console.log(res)
-		//这一段代码因未知原因未执行导致id变量未创建会导致出现错误
+		// 这一段代码因未知原因未执行导致id变量未创建会导致出现错误
         }
        }
       })
