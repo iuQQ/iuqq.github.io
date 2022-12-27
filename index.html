@@ -122,13 +122,14 @@ while(i < x.length){
     id = "#".concat(i)
     console.log(id)
     inid = 'inp'.concat(i)
-    $(id).html("<div class='action'>" + i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "</div>" + "回复：<input class='inthui' type='text'><br>")
+    $(id).html("<div class='action'>" + i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "</div>" + "回复：<input class='inthui' type='text'><input class='btn' value='发送' type='submit'><br>")
 }
         }
     })
     </script>
     <script type="text/javascript" charset="utf-8">
         // 思路：inthui的class设置第x个的id，对不同的id的返回值datas的userId回复提交不同的参数
+        // 在btn的class设置第x的id，发送不同的参数
     </script>
   </body>
 </html>
