@@ -74,7 +74,7 @@
     var vConsole = new VConsole();
     
     if (document.location.search == ""){
-        window.open("https://1.gzpy.tk/index.html?page=1")
+        window.open('1.gzpy.tk/index.html?page=1')
     }
     </script>
     页数：<input id="l" type="text"/>
@@ -87,7 +87,7 @@
     }
     
             x = document.location.search
-            y = x.split('?')
+            y = x.substring(1)
             console.log(y)
             if (y[1].split("=").length > 1){
                 l = y[1].split("&")
@@ -95,10 +95,10 @@
                 ds = l[0].split("=")
                 console.log(ds)
                 f = ds[1]
+                console.log('1')
             }else{
-            l = y[1].split("=")
-            console.log(l)
-            f = l[1]
+            ghj = y.split("=")
+            f = ghj[1]
             console.log(f)
             }
             
@@ -121,10 +121,14 @@ while(i < x.length){
     i++
     id = "#".concat(i)
     console.log(id)
-    $(id).html("<div class='action'>" + i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "</div>" + "<br><br>")
+    inid = 'inp'.concat(i)
+    $(id).html("<div class='action'>" + i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "</div>" + "回复：<input class='inthui' type='text'><br>")
 }
         }
     })
+    </script>
+    <script type="text/javascript" charset="utf-8">
+        // 思路：inthui的class设置第x个的id，对不同的id的返回值datas的userId回复提交不同的参数
     </script>
   </body>
 </html>
