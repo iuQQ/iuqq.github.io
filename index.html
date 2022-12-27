@@ -30,7 +30,47 @@
 	        height: 1px;
 	        border-bottom: dotted; 
 	    }
+	    
+    html, body {
+      position: relative;
+      height: 90%;
+    }
+    body {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 55%;
+    }
+	.swiper-wrapper{
+	  /* 通过改变animation-timing-function 制作弹性切换效果 */
+		    transition: 2s cubic-bezier(0.68, -0.4, 0.27, 1.34) 0.2s;
+		}
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
 	</style>
+	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">    
   </head>
   <body>
     <ul>
@@ -43,6 +83,16 @@
     </div><br />
     <div id="dlkv">
     </div>
+      <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+    </div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
     <div id="alsd">
     </div>
     <div id="1">
@@ -76,8 +126,18 @@
       
     </div>
     
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"> </script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>  
     <script src="https://unpkg.com/vconsole@3.15.0/dist/vconsole.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+	  speed: 2000,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
     <script type="text/javascript" charset="utf-8">
     $.ajax({
         url:"https://api.mcloc.cn/love?type=string",
