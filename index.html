@@ -13,19 +13,22 @@
 	        overflow: hidden;
 	        margin: 0;
             padding: 0;
-	        list-style-type: none;
 	    }
 	    
-	    li{
+	    ul a{
 	        width: 25%;
+	        color: black;
 	        line-height: 50px;
 	        background-color: grey;
 	        text-align: center;
 	        float: left;
+	        text-decoration: none;
 	    }
 	    
-	    .action{
-	        border: 1px solid red;
+	    #alsd{
+	        width: 100%;
+	        height: 1px;
+	        border-bottom: dotted; 
 	    }
 	</style>
   </head>
@@ -36,7 +39,12 @@
         <a href="#">举报</a>
         <a href="#">我的</a>
     </ul>
-    <br />
+    <div id="dlv">
+    </div><br />
+    <div id="dlkv">
+    </div>
+    <div id="alsd">
+    </div>
     <div id="1">
        
     </div>
@@ -70,6 +78,17 @@
     
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>  
     <script src="https://unpkg.com/vconsole@3.15.0/dist/vconsole.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+    $.ajax({
+        url:"https://api.mcloc.cn/love?type=string",
+        method:"post",
+        success: function(res){
+        console.log(res)
+        s = res + "<br>"
+        $('#dlv').html(s)
+       }
+      })
+    </script>
     <script>
     var vConsole = new VConsole();
     
@@ -122,8 +141,10 @@ while(i < x.length){
     id = "#".concat(i)
     console.log(id)
     inid = 'inp'.concat(i)
-    $(id).html("<div class='action'>" + i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "</div>" + "回复：<input class='inthui' type='text'><input class='btn' value='发送' type='submit'><br><br>")
+    $(id).html("<div class='action'>" + i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "<br>回复：<input class='inthui' type='text'><input class='btn' value='发送' type='submit'></div><br><br>")
 }
+console.log(id.substring(1))
+$('#dlkv').html("本页" + id.substring(1) + "篇")
         }
     })
     </script>
