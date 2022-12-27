@@ -31,7 +31,7 @@
     </script>
     <script type="text/javascript" charset="utf-8">
             qw = document.location.search
-            qe = qw.split('?')
+            qe = qw.substring(1)
             console.log(qe)
             if (qw != ""){
                 qr = qe[1].split("&")
