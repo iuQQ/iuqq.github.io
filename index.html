@@ -1,216 +1,578 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>论坛</title>
-	<style type="text/css" media="all">
-	    *{
-	      margin: 0;  
-	      padding: 0;
-	    }
-	    
-	    ul{
-	        overflow: hidden;
-	        margin: 0;
-            padding: 0;
-	    }
-	    
-	    ul a{
-	        width: 25%;
-	        color: black;
-	        line-height: 50px;
-	        background-color: grey;
-	        text-align: center;
-	        float: left;
-	        text-decoration: none;
-	    }
-	    
-	    #alsd{
-	        width: 100%;
-	        height: 1px;
-	        border-bottom: dotted; 
-	    }
-	    
-    html, body {
-      position: relative;
-      height: 90%;
-    }
-    body {
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color:#000;
-      margin: 0;
-      padding: 0;
-    }
-    .swiper-container {
-      width: 100%;
-      height: 55%;
-    }
-	.swiper-wrapper{
-	  /* 通过改变animation-timing-function 制作弹性切换效果 */
-		    transition: 2s cubic-bezier(0.68, -0.4, 0.27, 1.34) 0.2s;
-		}
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
+        <link rel="stylesheet" href="css/1.css" type="text/css" media="all" />
+        <title>验证码</title>
+    </head>
+    <style type="text/css" media="all">
+*{
+    margin: 0;
+    padding: 0;
+}
 
-      /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
+#yzm{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+#picyzm {
+	width: 100px;
+	height: 40px;
+	display: inline-block;
+	margin: 0 30px;
+}
+#verifyCodeDemo {
+	width: 100%;
+	display: flex;
+	margin-top: 200px;
+	justify-content: center;
+	position: fixed;
+}
+#btn {
+	margin: 30px auto;
+	background-color: blue;
+	color: #fff;
+	border-radius: 5px;
+	z-index: 100;
+	border: 0;
+	width: 100px;
+	top: 250;
+	left: 10;
+	position: fixed;
+	z-index: 2;
+	height: 40px;
+}
+
+body{
+    background-color: #f5f5f5;
+}
+
+#yzm{
+    z-index: 98;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 100%;
+}
+
+#zz{
+    background-color: black;
+    opacity: 0.5;
+    z-index: 2;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 20%;
+}
+
+#ai_sp1{
+    bottom: 0;
+    left: 0;
+    position: fixed;
+}
+
+#alert_ai{
+    width: 100%;
+    height: 80%;
+    border-top: 1px solid grey;
+    position: fixed;
+    bottom: 0;
+    background-color: #f1f1f1;
+}
+
+#ai{
+    position: fixed;
+    top: 88%;
+    left: 80%;
+}
+
+.error{
+    background-color: grey;
+    color: red;
+    width: 80%;
+    margin: 10%;
+    text-align: center;
+    position: fixed;
+    top: 40%;
+    line-height: 50px;
+    z-index: 99;
+}
+
+.libox{
+    overflow: hidden;
+    margin:0;
+    padding: 0;
+}
+	    
+.libox a{
+    width: 20%;
+    color: black;
+    line-height: 50px;
+    background-color: grey;
+    text-align: center;
+    float: left;
+    text-decoration: none;
+}
+
+.libox li{
+    background-color: grey;
+    line-height: 50px;
+    width: 20%;
+    text-align: center;
+    float: left;
+}
+
+.one_tm{
+    font-size: 10px;
+}
+
+#one_take_box{
+    background-color: grey;
+    width: 100%;
+    line-height: 10px;
+}
+
+.box{
+    width: 90%;
+    margin: 5%;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.look_box{
+    width: 90%;
+    margin: 5%;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+    </style>
+    <body>
+    <script type="text/javascript" charset="utf-8">
+!(function(window, document) {
+    function GVerify(options) { // 创建一个图形验证码对象，接收options对象为参数
+        this.options = { // 默认options参数值
+            id: "", // 容器Id
+            canvasId: "verifyCanvas", // canvas的ID
+            width: "100", // 默认canvas宽度
+            height: "30", // 默认canvas高度
+            type: "blend", // 图形验证码默认类型blend:数字字母混合类型、number:纯数字、letter:纯字母
+            code: ""
+        }
+        
+        if(Object.prototype.toString.call(options) == "[object Object]"){// 判断传入参数类型
+            for(var i in options) { // 根据传入的参数，修改默认参数值
+                this.options[i] = options[i];
+            }
+        }else{
+            this.options.id = options;
+        }
+        
+        this.options.numArr = "0,1,2,3,4,5,6,7,8,9".split(",");
+        this.options.letterArr = getAllLetter();
+
+        this._init();
+        this.refresh();
     }
-	</style>
-	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">    
-  </head>
-  <body>
-    <ul>
+
+    GVerify.prototype = {
+        /** 版本号* */
+        version: '1.0.0',
+        
+        /** 初始化方法* */
+        _init: function() {
+            var con = document.getElementById(this.options.id);
+            var canvas = document.createElement("canvas");
+            this.options.width = con.offsetWidth > 0 ? con.offsetWidth : "100";
+            this.options.height = con.offsetHeight > 0 ? con.offsetHeight : "30";
+            canvas.id = this.options.canvasId;
+            canvas.width = this.options.width;
+            canvas.height = this.options.height;
+            canvas.style.cursor = "pointer";
+            canvas.innerHTML = "您的浏览器版本不支持canvas";
+            con.appendChild(canvas);
+            var parent = this;
+            canvas.onclick = function(){
+                parent.refresh();
+            }
+        },
+        
+        /** 生成验证码* */
+        refresh: function() {
+            this.options.code = "";
+            var canvas = document.getElementById(this.options.canvasId);
+            if(canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+            }else{
+                return;
+            }
+            
+            ctx.textBaseline = "middle";
+
+            ctx.fillStyle = randomColor(180, 240);
+            ctx.fillRect(0, 0, this.options.width, this.options.height);
+
+            if(this.options.type == "blend") { // 判断验证码类型
+                var txtArr = this.options.numArr.concat(this.options.letterArr);
+            } else if(this.options.type == "number") {
+                var txtArr = this.options.numArr;
+            } else {
+                var txtArr = this.options.letterArr;
+            }
+
+            for(var i = 1; i <= 4; i++) {
+                var txt = txtArr[randomNum(0, txtArr.length)];
+                this.options.code += txt;
+                ctx.font = randomNum(this.options.height/2, this.options.height) + 'px SimHei'; // 随机生成字体大小
+                ctx.fillStyle = randomColor(50, 160); // 随机生成字体颜色
+                ctx.shadowOffsetX = randomNum(-3, 3);
+                ctx.shadowOffsetY = randomNum(-3, 3);
+                ctx.shadowBlur = randomNum(-3, 3);
+                ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
+                var x = this.options.width / 5 * i;
+                var y = this.options.height / 2;
+                var deg = randomNum(-30, 30);
+                /** 设置旋转角度和坐标原点* */
+                ctx.translate(x, y);
+                ctx.rotate(deg * Math.PI / 180);
+                ctx.fillText(txt, 0, 0);
+                /** 恢复旋转角度和坐标原点* */
+                ctx.rotate(-deg * Math.PI / 180);
+                ctx.translate(-x, -y);
+            }
+            /** 绘制干扰线* */
+            for(var i = 0; i < 4; i++) {
+                ctx.strokeStyle = randomColor(40, 180);
+                ctx.beginPath();
+                ctx.moveTo(randomNum(0, this.options.width), randomNum(0, this.options.height));
+                ctx.lineTo(randomNum(0, this.options.width), randomNum(0, this.options.height));
+                ctx.stroke();
+            }
+            /** 绘制干扰点* */
+            for(var i = 0; i < this.options.width/4; i++) {
+                ctx.fillStyle = randomColor(0, 255);
+                ctx.beginPath();
+                ctx.arc(randomNum(0, this.options.width), randomNum(0, this.options.height), 1, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        },
+        
+        /** 验证验证码* */
+        validate: function(code){
+            var code = code.toLowerCase();
+            var v_code = this.options.code.toLowerCase();
+            if(code == v_code){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+    /** 生成字母数组* */
+    function getAllLetter() {
+        var letterStr = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
+        return letterStr.split(",");
+    }
+    /** 生成一个随机数* */
+    function randomNum(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+    /** 生成一个随机色* */
+    function randomColor(min, max) {
+        var r = randomNum(min, max);
+        var g = randomNum(min, max);
+        var b = randomNum(min, max);
+        return "rgb(" + r + "," + g + "," + b + ")";
+    }
+    window.GVerify = GVerify;
+})(window, document);
+
+    </script>
+
+    <div id="yzm">
+    <div id="verifyCodeDemo">
+		<input type="text" id="code_input" placeholder="在这个框里输入验证码">
+		<p id="picyzm"></p>
+		<input type="button" value="验证" id="btn">
+	</div>
+	</div>
+	
+	<script type="text/javascript">
+		//初始化验证码
+		var verifyCode = new GVerify({
+			id : "picyzm",
+			type : "blend"
+		});
+		
+		function gbn() {
+			var res = verifyCode.validate(code.value);
+			if (res) {
+				alert("验证通过");
+                $('#yzm').fadeToggle(0);
+                document.getElementsByTagName("title")[0].innerText = '行星网 - 一切皆随机';
+			} else {
+				alert("验证码错误");
+			}
+		}
+		
+		t = document.getElementById("code_input")
+        t.onkeyup = function(e){
+        console.log(e.keyCode)
+        if (e.keyCode == 13){
+        // 13是回车键
+          gbn()
+          }
+        }
+		
+		//点击按钮验证
+		var code = document.getElementById("code_input");
+		var btn = document.getElementById("btn");
+		btn.onclick = function() {
+			var res = verifyCode.validate(code.value);
+			if (res) {
+				alert("验证通过");
+                $('#yzm').fadeToggle(0);
+                document.getElementsByTagName("title")[0].innerText = '行星网 - 一切皆随机';
+			} else {
+				alert("验证码错误");
+			}
+		}
+	</script>
+        
+    <div id="zz"></div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>  
+    <div class="error">出现未知错误</div>
+    
+    <ul class="libox">
+        <li>行星网</li>
         <a href="#">首页</a>
-        <a href="write/1.html">发文</a>
-        <a href="#">举报</a>
+        <a href="#">api</a>
+        <a href="#">跨年</a>
         <a href="#">我的</a>
     </ul>
-    <div id="dlv">
-    </div><br />
-    <div id="dlkv">
+    <div id="one_take_box">
+        <span class="one_tm" id="one_take">一言：加载中</span>
+        <span class="one_tm" id="one_music">背景音乐：加载中</span>
     </div>
-      <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-    </div>
-    <!-- Add Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
-    <div id="alsd">
-    </div>
-    <div id="1">
-       
-    </div>
-    <div id="2">
-    
-    </div>
-    <div id="3">
-    
-    </div>
-    <div id="4">
-      
-    </div>
-    <div id="5">
-    
-    </div>
-    <div id="6">
-    
-    </div>
-    <div id="7">
-       
-    </div>
-    <div id="8">
-    
-    </div>
-    <div id="9">
-    
-    </div>
-    <div id="10">
-      
+    <div class="box">
+        <span id="user_title">您的信息：</span><br />
+        <span id="user_ip">ip：加载中...</span><br />
+        <span id="user_system">系统：加载中...</span><br />
+        <span id="user_browser">浏览器：加载中...</span><br />
+        <span id="user_time">时间：加载中...</span><br />
+        <span id="user_where">位置：加载中...</span><br />
+        <span id="user_play">运营商：加载中...</span>
     </div>
     
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"> </script>
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>  
-    <script src="https://unpkg.com/vconsole@3.15.0/dist/vconsole.min.js" type="text/javascript" charset="utf-8"></script>
-    <script>
-    var swiper = new Swiper('.swiper-container', {
-	  speed: 2000,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-  </script>
+    <div class="box">
+        <span>历史上的今天：</span><br />
+        <span id="nday"></span>
+        <script type="text/javascript" charset="utf-8">
+$.ajax({
+        url:"https://api.vore.top/api/history",
+        method:"get",
+        success: function(res){
+        console.log(res)
+        console.log('api7')
+        $('#nday').html(res.html)
+       }
+})
+        </script>
+    </div>
+    
+    <div class="box">
+        <span>问题反馈：</span><br />
+        <span><a href="https://api.vvhan.com/api/qqCard?qq=1655466387"></a>qq：1294036993</a></span><br />
+        <span>邮箱：1294036993@qq.com</span><br />
+    </div>
+
+    <div class="box">
+        <span>浏览次数：</span>
+        <img id="cdl" src="https://api.vore.top/api/ACGcount?id=xingxingnet" alt="" />
+    </div>
+
+    <div id="alert_ai">
+        <span id="ai_box">
+            <span id="ai_2"></span>
+            <br />
+            <span id="ai_1"></span>
+        </span>
+        <span id="ai_sp1">
+            <input id="ai_in1" type="text" value="和小爱说些什么..."/>
+            <input id="ai_in2" type="submit" />
+        </span>
+    </div>
+    
+    <img id="ai" width="20%" src="https://inews.gtimg.com/newsapp_match/0/13435905765/0" />
+    <script src='https://api.vvhan.com/api/snow'></script>
+    <script src='https://cdn.bootcdn.net/ajax/libs/vue/3.2.45/vue.cjs.min.js'></script>
     <script type="text/javascript" charset="utf-8">
-    $.ajax({
+$('#alert_ai').fadeToggle(0);
+$('#zz').fadeToggle(0);
+$(".error").fadeToggle(500);
+
+		var body = document.getElementsByTagName('body')[0];
+		var textArr=["乐观", "❤" ,"积极", "向上", "自由", "正能量","(*^▽^*)", "元气满满", "开心" ,"快乐", "善良", "可爱", "暴富", "暴瘦"];
+		document.addEventListener('click',(e)=>{
+			// 生成字符串
+			var ev = e || window.event;
+			var baseX = ev.pageX;
+			var baseY = ev.pageY;
+			var new_span=document.createElement('span');
+			new_span.innerText=textArr[parseInt(Math.random()*textArr.length)]
+			new_span.style.position='fixed';
+			new_span.style.left=baseX-10+'px';
+			new_span.style.top=baseY+'px';
+			new_span.style.color='RGB('+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+')';
+			body.appendChild(new_span);
+			// 定时器1实现字符串上升效果
+			var timer = window.setInterval(()=>{
+				new_span.style.top=parseInt(window.getComputedStyle(new_span,null)['top'])-2+'px';
+				// console.log(window.getComputedStyle(new_span,null)['fontSize']);
+				new_span.style.opacity=window.getComputedStyle(new_span,null)['opacity']-0.02;
+				
+			},30);
+			// 定时器2实现字符串消失
+			window.setTimeout(()=>{
+				window.clearInterval(timer);
+				body.removeChild(new_span);
+			},1000);
+		},false);
+
+$.ajax({
         url:"https://api.mcloc.cn/love?type=string",
         method:"post",
         success: function(res){
         console.log(res)
-        s = res + "<br>"
-        $('#dlv').html(s)
+        console.log('api1')
+        res = res + "<br>"
+        $('#one_take').html('一言：' + res)
        }
-      })
-    </script>
-    <script>
-    var vConsole = new VConsole();
-    
-    if (document.location.search == ""){
-        window.open('https://1.gzpy.tk/index.html?page=1')
-    }
-    </script>
-    页数：<input id="l" type="text"/>
-    <button id="a" type="submit">确定</button>
-    <script type="text/javascript" charset="utf-8">
-    a.onclick = function (){
-    x = document.getElementById('l').value
-    url = "https://1.gzpy.tk/index.html?page=".concat(x)
-    window.open(url)
-    }
-    
-            x = document.location.search
-            y = x.substring(1)
-            console.log(y)
-            if (y[1].split("=").length > 1){
-                l = y[1].split("&")
-                console.log(l)
-                ds = l[0].split("=")
-                console.log(ds)
-                f = ds[1]
-                console.log('1')
-            }else{
-            ghj = y.split("=")
-            f = ghj[1]
-            console.log(f)
-            }
-            
-    $.ajax({
-        url:"http://service.kefantx.com:88/hxd/selectPublicNormalTable",
+})
+
+$.ajax({
+        url:"https://api.uomg.com/api/visitor.info",
         method:"post",
         data:{
-        appId:"54340",
-        appKey:"af126aec3fff4e48bbcdd76cbfc9cf85",
-        page: f
-      },
+        skey:'13781654'
+        },
         success: function(res){
-        x = res.datas
+        console.log(res)
+        console.log('api2')
+        res = JSON.parse(res)
+        ip = res.ip
+        $('#user_ip').text('ip：' + ip)
+        let system = res.system
+        $('#user_system').text('系统：' + system)
+        let time = res.time
+        $('#user_time').text('时间：' + time)
+    
+$.ajax({
+        url:"https://api.vore.top/api/IPdata",
+        method:"post",
+        data:{
+            ip: $('#user_ip').text().substring(3)
+        },
+        error: function() {
+        $(".error").fadeToggle(1000);
+        setTimeout(()=>{
+            $(".error").fadeToggle(1000);
+        },5000)
+        console.log('api3加载失败')
+       }, 
+        success: function(res){
+        console.log(res)
+        console.log('api3')
+        res = res.ipdata
+        re1 = res.info1
+        re2 = res.info2
+        re3 = res.info3
+        res = '位置：' + re1 + ' ' + re2 + ' ' + re3
+        $('#user_where').text(res)
+       }
+})
 
-i = 0
-while(i < x.length){
-    console.log(x[i]); 
-    l = x[i]
-    console.log(l.appid)
-    i++
-    id = "#".concat(i)
-    console.log(id)
-    inid = 'inp'.concat(i)
-    $(id).html("<div class='action'>" + i + "." + "用户ID:" + l.userid + "<br>" + "标题：" + l.string1 + "<br>" + "内容：" + l.string2 + "<br>时间：" + l.string3 + "<br>回复：<input class='inthui' type='text'><input class='btn' value='发送' type='submit'></div><br><br>")
+$.ajax({
+    url: 'https://api.gmit.vip/Api/UserInfo',
+    type: 'post',
+    dataType: 'json',
+    async: false, 
+    data: {
+        format : 'json',
+    },
+    error: function() {
+        $(".error").fadeToggle(1000);
+        setTimeout(()=>{
+            $(".error").fadeToggle(1000);
+        },5000)
+        console.log('api4加载失败')
+    }, 
+    success: function (res) {
+            console.log(res)
+            console.log('api4')
+            os = $('#user_system').text()
+            console.log(os)
+            os = os.substring(3)
+            $('#user_system').text('系统：' + os + ' ' + res.data.os)
+            $('#user_browser').text('浏览器：' + res.data.browser)
+            $('#user_play').text('运营商：' + res.data.isp)
+    }
+})
+       }
+})
+
+$.ajax({
+        url:"https://api.uomg.com/api/rand.music",
+        method:"post",
+        data:{
+        format:'json'
+        },
+        success: function(res){
+        console.log(res)
+        console.log('api5')
+        res_name = res.data.name
+        $('#one_music').text('背景音乐：' + res_name)
+        reh_url = res.data.url
+        console.log(reh_url)
+        var audio = new Audio(reh_url);
+        setTimeout(()=>{
+            audio.play(); 
+        },1750)
 }
-console.log(id.substring(1))
-$('#dlkv').html("本页" + id.substring(1) + "篇")
+})
+
+ai.onclick = function(){
+    $("#alert_ai").fadeToggle(250);
+    $('#zz').fadeToggle(250);
+}
+
+ai_in2.onclick = function(){
+    va = $('#ai_in1').val()
+    console.log(va)
+    $('#ai_2').text(va)
+    $('#ai_1').text('')
+    $.ajax({
+        url:"https://v.api.aa1.cn/api/api-xiaoai/talk.php",
+        method:"get",
+        data:{
+            msg: va
+        },
+        error: function() {
+        $(".error").fadeToggle(1000);
+        $(".error").fadeToggle(2000);
+        }, 
+        success: function(res){
+        console.log(res)
+        console.log('api6')
+        $('#ai_1').text(res)
         }
-    })
+})}
+
+// document.getElementById()
+// $()
     </script>
-    <script type="text/javascript" charset="utf-8">
-        // 思路：inthui的class设置第x个的id，对不同的id的返回值datas的userId回复提交不同的参数
-        // 在btn的class设置第x的id，发送不同的参数
-    </script>
-  </body>
+    </body>
 </html>
