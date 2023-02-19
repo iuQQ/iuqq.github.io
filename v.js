@@ -1,8 +1,8 @@
 get_new_version({
 	name:'文件管理器',
-	Version:'1.094',
+	Version:'1.095',
 	page:'https://iuqq.github.io/',
-	Introduction:'增加加载页面显示具体加载内容，对菜单栏功能进行完善 ←_←',
+	Introduction:'优化了性能，修复了部分已知BUG ←_←',
 	download:'https://iuqq.github.io/fi_ma.apk'
 })
 /*
